@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 	$header
 );
 
-$this->menuActiveItems[EController::ACCESS_MENU_ITEM] = 1;
+$this->menuActiveItems[BController::ACCESS_MENU_ITEM] = 1;
 ?>
 <div>
 
@@ -20,7 +20,7 @@ $this->menuActiveItems[EController::ACCESS_MENU_ITEM] = 1;
 			'validateOnSubmit'=>true,
 			'validateOnChange'=>false,
 			'errorCssClass'=>'error',
-			'afterValidate'=>'js:contentAfterValidate',
+			'afterValidate'=>'js:contentAfterAjaxValidate',
 		),
 		'htmlOptions'=>array('class'=>'form-horizontal', 'rel' => $this->createUrl('access/index')),
 

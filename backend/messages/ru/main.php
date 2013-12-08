@@ -9,4 +9,13 @@ return array(
 	'Confirm Password Validate Error'=>'Введенные пароли не совпадают',
 	'Edit'=>'Редактировать',
 	'Delete'=>'Удалить',
+	'Name'=>'Название',
+	'Visible'=>'Видимость',
+	'View'=>'Посмотреть',
+	'Text'=>'Описание',
+	'Price'=>'Цена',
+	'Weight'=>'Вес',
+	'Recommended'=>'Рекомендовано',
+	'Image'=>'Изображение',
+	
 );

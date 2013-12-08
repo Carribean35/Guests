@@ -12,7 +12,7 @@ $this->breadcrumbs_button = '<li class="pull-right no-text-shadow">
 								<a class="btn blue dash-btn" href="'.$this->createUrl('access/item').'"><i class="icon-plus"></i>Добавить запись</a>
 							</li>';
 
-$this->menuActiveItems[EController::ACCESS_MENU_ITEM] = 1;
+$this->menuActiveItems[BController::ACCESS_MENU_ITEM] = 1;
 ?>
 <div>
 	
