@@ -27,7 +27,6 @@ class MenuController extends RController
 	
 	public function actionSection($pid = 0, $id = false) 
 	{
-		
 		if ($id !== false) 
 		{
 			$header = 'Редактировать раздел';
@@ -50,10 +49,12 @@ class MenuController extends RController
 			}
 			
 			if($model->save()) {
-				Yii::app()->ih
-				->load($_FILES['Menu']['tmp_name']['image'])
-				->resize(200,140)
-				->save($model->imagesPath.$model->id);
+				if (!empty($_FILES['Menu']['tmp_name']['image'])) {
+					Yii::app()->ih
+					->load($_FILES['Menu']['tmp_name']['image'])
+					->resize(200,140)
+					->save($model->imagesPath.$model->id);
+				}
 				
 				$this->redirect($this->createUrl('menu/index', array('id' => $pid)));
 			}
@@ -110,10 +111,12 @@ class MenuController extends RController
 			$model->attributes=$_POST['Dish'];
 			
 			if($model->save()) {
-				Yii::app()->ih
-				->load($_FILES['Dish']['tmp_name']['image'])
-				->resize(200,140)
-				->save($model->imagesPath.$model->id);
+				if (!empty($_FILES['Dish']['tmp_name']['image'])) {
+					Yii::app()->ih
+					->load($_FILES['Dish']['tmp_name']['image'])
+					->resize(200,140)
+					->save($model->imagesPath.$model->id);
+				}
 				
 				$this->redirect($this->createUrl('menu/index', array('id' => $pid)));
 			}

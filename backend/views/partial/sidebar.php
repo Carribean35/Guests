@@ -34,6 +34,17 @@
 			</a>
 		</li>
 		<?php endif;?>
+		<?php if(Yii::app()->user->checkAccess('Action.*')): ?>
+		<li class="start <?php if (!empty($this->menuActiveItems[BController::ACTION_MENU_ITEM])) { echo 'active'; } ?>">
+			<a href="<?php echo $this->createUrl('action/index') ?>">
+			<i class="icon-bullhorn"></i> 
+			<span class="title">Акции</span>
+			<span class="selected"></span>
+			<?php if (!empty($this->menuActiveItems[BController::ACTION_MENU_ITEM])) { echo '<span class="arrow "></span>'; } ?>
+			</a>
+		</li>
+		<?php endif;?>
+		
 	</ul>
 	<!-- END SIDEBAR MENU -->
 </div>
