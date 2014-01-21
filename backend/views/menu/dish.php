@@ -112,6 +112,9 @@ if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 		
 		<div class="form-actions large">
 			<?php echo CHtml::htmlButton('<i class="icon-ok"></i> Сохранить', array('class' => 'btn blue', 'type' => 'submit')); ?>
+			<?php if (!empty($model->id)) : ?>
+				<a href="/menu/deleteDish/<?php echo $model->id?>/" onclick="return confirmDelete()"><?php echo CHtml::htmlButton('<i class="icon-remove"></i> Удалить', array('class' => 'btn red', 'type' => 'button')); ?></a>
+			<?php endif;?>
 			<?php echo CHtml::htmlButton('Отменить', array('class' => 'btn', 'type' => 'reset')); ?>
 		</div>
 		

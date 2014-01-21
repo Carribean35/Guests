@@ -44,6 +44,26 @@
 			</a>
 		</li>
 		<?php endif;?>
+		<?php if(Yii::app()->user->checkAccess('News.*')): ?>
+		<li class="start <?php if (!empty($this->menuActiveItems[BController::NEWS_MENU_ITEM])) { echo 'active'; } ?>">
+			<a href="<?php echo $this->createUrl('news/index') ?>">
+			<i class="icon-coffee"></i> 
+			<span class="title">Новости</span>
+			<span class="selected"></span>
+			<?php if (!empty($this->menuActiveItems[BController::NEWS_MENU_ITEM])) { echo '<span class="arrow "></span>'; } ?>
+			</a>
+		</li>
+		<?php endif;?>
+		<?php if(Yii::app()->user->checkAccess('Pages.*')): ?>
+		<li class="start <?php if (!empty($this->menuActiveItems[BController::PAGES_MENU_ITEM])) { echo 'active'; } ?>">
+			<a href="<?php echo $this->createUrl('pages/index') ?>">
+			<i class="icon-coffee"></i>
+			<span class="title">Типовые страницы</span>
+			<span class="selected"></span>
+			<?php if (!empty($this->menuActiveItems[BController::PAGES_MENU_ITEM])) { echo '<span class="arrow "></span>'; } ?>
+			</a>
+		</li>
+		<?php endif;?>
 		
 	</ul>
 	<!-- END SIDEBAR MENU -->

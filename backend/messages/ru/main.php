@@ -17,5 +17,6 @@ return array(
 	'Weight'=>'Вес',
 	'Recommended'=>'Рекомендовано',
 	'Image'=>'Изображение',
+	'Create Date'=>'Дата создания',
 	
 );

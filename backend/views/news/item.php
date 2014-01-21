@@ -1,15 +1,15 @@
 <?php
-/* @var $this ActionController */
-/* @var $model Action */
+/* @var $this NewsController */
+/* @var $model News */
 
 $this->title_h3=$header;
 
 $this->breadcrumbs=array(
-	'Акции' => $this->createUrl('action/index'),
+	'Новости' => $this->createUrl('news/index'),
 	$header
 );
 
-$this->menuActiveItems[BController::ACTION_MENU_ITEM] = 1;
+$this->menuActiveItems[BController::NEWS_MENU_ITEM] = 1;
 
 Yii::app()->clientScript->registerScriptFile(
 	Yii::app()->assetManager->publish(
@@ -21,6 +21,21 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerCssFile(
 	Yii::app()->assetManager->publish(
 		Yii::getPathOfAlias('webroot').'/plugins/bootstrap-fileupload/bootstrap-fileupload.css'
+	),
+	'',
+	CClientScript::POS_END
+);
+
+Yii::app()->clientScript->registerScriptFile(
+	Yii::app()->assetManager->publish(
+		Yii::getPathOfAlias('webroot').'/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'
+	),
+	CClientScript::POS_END
+);
+
+Yii::app()->clientScript->registerCssFile(
+	Yii::app()->assetManager->publish(
+		Yii::getPathOfAlias('webroot').'/plugins/bootstrap-datepicker/css/datepicker.css'
 	),
 	'',
 	CClientScript::POS_END
@@ -44,7 +59,7 @@ if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 			'errorCssClass'=>'error',
 			'afterValidate'=>'js:contentAfterClientValidate',
 		),
-		'htmlOptions'=>array('class'=>'form-horizontal', 'rel' => $this->createUrl('action/index'), 'enctype'=>'multipart/form-data'),
+		'htmlOptions'=>array('class'=>'form-horizontal', 'rel' => $this->createUrl('news/index'), 'enctype'=>'multipart/form-data'),
 
 	)); ?>
 	
@@ -70,7 +85,8 @@ if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 		<div class="control-group">
 			<?php echo $form->label($model,'name',array('class'=>'control-label')); ?>
 			<div class="controls">
-				<?php echo $form->textField($model,'name',array('class'=>'m-wrap medium')); ?>
+				<?php echo $form->textField($model,'name',array('class'=>'m-wrap large')); ?><br>
+				<?php echo $form->textField($model,'name2',array('class'=>'m-wrap large')); ?>
 				<span class="help-inline"><?php echo $form->error($model,'name'); ?></span>
 			</div>
 		</div>
@@ -80,6 +96,14 @@ if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 			<div class="controls">
 				<?php echo $form->textArea($model,'text',array('class'=>'m-wrap large')); ?>
 				<span class="help-inline"><?php echo $form->error($model,'text'); ?></span>
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<?php echo $form->label($model,'createDate',array('class'=>'control-label')); ?>
+			<div class="controls">
+				<?php echo $form->textField($model,'createDate',array('class'=>'m-wrap small date-picker', 'readonly'=>true)); ?>
+				<span class="help-inline"><?php echo $form->error($model,'createDate'); ?></span>
 			</div>
 		</div>
 		
@@ -94,7 +118,7 @@ if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 		<div class="form-actions large">
 			<?php echo CHtml::htmlButton('<i class="icon-ok"></i> Сохранить', array('class' => 'btn blue', 'type' => 'submit')); ?>
 			<?php if (!empty($model->id)) : ?>
-				<a href="/action/delete/<?php echo $model->id?>/" onclick="return confirmDelete()"><?php echo CHtml::htmlButton('<i class="icon-remove"></i> Удалить', array('class' => 'btn red', 'type' => 'button')); ?></a>
+				<a href="/news/delete/<?php echo $model->id?>/" onclick="return confirmDelete()"><?php echo CHtml::htmlButton('<i class="icon-remove"></i> Удалить', array('class' => 'btn red', 'type' => 'button')); ?></a>
 			<?php endif;?>
 			<?php echo CHtml::htmlButton('Отменить', array('class' => 'btn', 'type' => 'reset')); ?>
 		</div>
@@ -104,3 +128,14 @@ if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 	<?php $this->endWidget(); ?>
 
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		if (jQuery().datepicker) {
+			$('.date-picker').datepicker({
+				rtl : App.isRTL(),
+				format: "dd.mm.yyyy"
+			});
+		}
+	})
+</script>
