@@ -64,6 +64,16 @@
 			</a>
 		</li>
 		<?php endif;?>
+		<?php if(Yii::app()->user->checkAccess('Team.*')): ?>
+		<li class="start <?php if (!empty($this->menuActiveItems[BController::TEAM_MENU_ITEM])) { echo 'active'; } ?>">
+			<a href="<?php echo $this->createUrl('team/index') ?>">
+			<i class="icon-coffee"></i>
+			<span class="title">Наша команда</span>
+			<span class="selected"></span>
+			<?php if (!empty($this->menuActiveItems[BController::TEAM_MENU_ITEM])) { echo '<span class="arrow "></span>'; } ?>
+			</a>
+		</li>
+		<?php endif;?>
 		
 	</ul>
 	<!-- END SIDEBAR MENU -->
