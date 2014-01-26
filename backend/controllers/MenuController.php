@@ -50,10 +50,26 @@ class MenuController extends RController
 			
 			if($model->save()) {
 				if (!empty($_FILES['Menu']['tmp_name']['image'])) {
-					Yii::app()->ih
+					if (!file_exists($model->imagesPath.'original/'))
+						mkdir($model->imagesPath.'original/');
+					if (!file_exists($model->imagesPath.'admin_preview/'))
+						mkdir($model->imagesPath.'admin_preview/');
+					
+					$ih = Yii::app()->ih
 					->load($_FILES['Menu']['tmp_name']['image'])
-					->resize(200,140)
-					->save($model->imagesPath.$model->id);
+					->save($model->imagesPath.'original/'.$model->id)
+					->adaptiveThumb(200,150)
+					->save($model->imagesPath.'admin_preview/'.$model->id);
+					
+					$sizes = $model->getImageSizes();
+					
+					foreach ($sizes AS $key => $val) {
+						if (!file_exists($model->imagesPath.$val[0].'x'.$val[1].'/'))
+							mkdir($model->imagesPath.$val[0].'x'.$val[1].'/');
+						$ih->reload()
+						->adaptiveThumb($val[0], $val[1])
+						->save($model->imagesPath.$val[0].'x'.$val[1].'/'.$model->id);
+					}
 				}
 				
 				$this->redirect($this->createUrl('menu/index', array('id' => $pid)));
@@ -111,11 +127,28 @@ class MenuController extends RController
 			$model->attributes=$_POST['Dish'];
 			
 			if($model->save()) {
+				if (!file_exists($model->imagesPath.'original/'))
+					mkdir($model->imagesPath.'original/');
+				if (!file_exists($model->imagesPath.'admin_preview/'))
+					mkdir($model->imagesPath.'admin_preview/');
+				
 				if (!empty($_FILES['Dish']['tmp_name']['image'])) {
-					Yii::app()->ih
+					$ih = Yii::app()->ih
 					->load($_FILES['Dish']['tmp_name']['image'])
-					->resize(200,140)
-					->save($model->imagesPath.$model->id);
+					->save($model->imagesPath.'original/'.$model->id)
+					->adaptiveThumb(200,150)
+					->save($model->imagesPath.'admin_preview/'.$model->id);
+					
+					$sizes = $model->getImageSizes();
+						
+					foreach ($sizes AS $key => $val) {
+						if (!file_exists($model->imagesPath.$val[0].'x'.$val[1].'/'))
+							mkdir($model->imagesPath.$val[0].'x'.$val[1].'/');
+						$ih->reload()
+						->adaptiveThumb($val[0], $val[1])
+						->save($model->imagesPath.$val[0].'x'.$val[1].'/'.$model->id);
+					}
+					
 				}
 				
 				$this->redirect($this->createUrl('menu/index', array('id' => $pid)));

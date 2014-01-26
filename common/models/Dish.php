@@ -18,6 +18,7 @@ class Dish extends EActiveRecord
 	
 	private $_imagesPath;
 	private $_imagesUrl;
+	private $_imageSizes = array(array(440, 452), array(208, 131));
 	
 	public $image;
 	
@@ -35,6 +36,10 @@ class Dish extends EActiveRecord
 	
 	public function getImagesUrl() {
 		return $this->_imagesUrl;
+	}
+	
+	public function getImageSizes() {
+		return $this->_imageSizes;
 	}
 	
 	/**
@@ -136,8 +141,16 @@ class Dish extends EActiveRecord
 	}
 	
 	public function deleteDish() {
-		if (file_exists($this->imagesPath.$this->id))
-			unlink($this->imagesPath.$this->id);
+		if (file_exists($this->imagesPath.'original/'.$this->id))
+			unlink($this->imagesPath.'original/'.$this->id);
+		if (file_exists($this->imagesPath.'admin_preview/'.$this->id))
+			unlink($this->imagesPath.'admin_preview/'.$this->id);
+
+		foreach($this->_imageSizes AS $key => $val) {
+			if (file_exists($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id))
+				unlink($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id);
+		}
+
 		$this->delete();
 	}
 }

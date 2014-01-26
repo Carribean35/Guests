@@ -21,7 +21,7 @@ Yii::app()->clientScript->registerCssFile(
 	CClientScript::POS_END
 );
 
-$imageUrl = '/img/noimage.gif';
+$imageUrl = '/img/size-440x452.jpg';
 
 if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 	$imageUrl = $model->imagesUrl.$model->id;

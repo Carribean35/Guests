@@ -21,10 +21,10 @@ Yii::app()->clientScript->registerCssFile(
 	CClientScript::POS_END
 );
 
-$imageUrl = '/img/noimage.gif';
+$imageUrl = '/img/size-208x131.jpg';
 
-if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
-	$imageUrl = $model->imagesUrl.$model->id;
+if (!empty($model->id) && file_exists($model->imagesPath.'admin_preview/'.$model->id))
+	$imageUrl = $model->imagesUrl.'admin_preview/'.$model->id;
 
 ?>
 <div>
