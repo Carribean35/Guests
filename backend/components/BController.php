@@ -10,7 +10,10 @@ class BController extends EController
 	const ACTION_MENU_ITEM = "action";
 	const NEWS_MENU_ITEM = "news";
 	const PAGES_MENU_ITEM = "pages";
-	const TEAM_MENU_ITEM = "team";
+	const TEAM_MENU_GALLERY = "team_gallery";
+	const TEAM_MENU_WORKER = "team_worker";
+	const TEAM_MENU_JOB = "team_job";
+	const TEAM_MENU_RESUME = "team_resume";
 	
 	public $breadcrumbs;
 	public $breadcrumbs_button;

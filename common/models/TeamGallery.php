@@ -1,27 +1,27 @@
 <?php
 
 /**
- * This is the model class for table "team".
+ * This is the model class for table "teamGallery".
  *
- * The followings are the available columns in table 'team':
+ * The followings are the available columns in table 'teamGallery':
  * @property integer $id
  * @property string $name
  * @property integer $visible
  */
-class Team extends EActiveRecord
+class TeamGallery extends EActiveRecord
 {
 	
 	private $_imagesPath;
 	private $_imagesUrl;
+	private $_imageSizes = array(array(665, 439));
 	
 	public $image;
-	
 	
 	public function init()
 	{
 		parent::init();
-		$this->_imagesPath = Yii::getPathOfAlias('common').'/data/team/foto/';
-		$this->_imagesUrl = '/data/team/foto/';
+		$this->_imagesPath = Yii::getPathOfAlias('common').'/data/team/gallery/';
+		$this->_imagesUrl = '/data/team/gallery/';
 	}
 	
 	public function getImagesPath() {
@@ -36,12 +36,16 @@ class Team extends EActiveRecord
 		return file_exists($this->imagesPath.$this->id);
 	}
 	
+	public function getImageSizes() {
+		return $this->_imageSizes;
+	}
+	
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'team';
+		return 'teamGallery';
 	}
 
 	/**
@@ -124,8 +128,15 @@ class Team extends EActiveRecord
 	}
 	
 	public function deleteFull() {
-		if (file_exists($this->imagesPath.$this->id))
-			unlink($this->imagesPath.$this->id);
+		if (file_exists($this->imagesPath.'original/'.$this->id))
+			unlink($this->imagesPath.'original/'.$this->id);
+		if (file_exists($this->imagesPath.'admin_preview/'.$this->id))
+			unlink($this->imagesPath.'admin_preview/'.$this->id);
+
+		foreach($this->_imageSizes AS $key => $val) {
+			if (file_exists($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id))
+				unlink($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id);
+		}
 		$this->delete();
 	}
 }

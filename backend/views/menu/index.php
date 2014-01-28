@@ -46,7 +46,7 @@ $this->menuActiveItems[BController::MENU_MENU_ITEM] = 1;
 						'name'=>'name',
 						'type'=>'html',
 						'value'=>function($data) {
-							return CHtml::link($data['name'], $this->createUrl('menu/index', array('id'=>$data['id'])));
+							return CHtml::link($data['name'], '/menu/index/'.$data['id'].'/');
 						}
 					),
 					array(
@@ -69,7 +69,7 @@ $this->menuActiveItems[BController::MENU_MENU_ITEM] = 1;
 								'imageUrl'=>false,
 								'options'=>array('class'=>'btn mini green-stripe'),
 								'url'=>function($data) {
-									return $this->createUrl('menu/index', array('id'=>$data['id']));
+									return '/menu/index/'.$data['id'].'/';
 								},
 							),
 							'edit'=>array(
@@ -77,7 +77,7 @@ $this->menuActiveItems[BController::MENU_MENU_ITEM] = 1;
 								'imageUrl'=>false,
 								'options'=>array('class'=>'btn mini blue-stripe'),
 								'url'=>function($data) {
-									return $this->createUrl('menu/section', array('pid'=>$data['pid'], 'id'=>$data['id']));
+									return '/menu/section/'.$data['pid'].'/'.$data['id'].'/';
 								},
 							),
 							'delete'=>array(
@@ -86,7 +86,7 @@ $this->menuActiveItems[BController::MENU_MENU_ITEM] = 1;
 								'options'=>array('class'=>'btn mini red-stripe'),
 								'click'=>'confirmDelete',
 								'url'=>function($data) {
-									return $this->createUrl('menu/deleteSection', array('id'=>$data['id']));
+									return '/menu/deleteSection/'.$data['id'].'/';
 								},
 							),
 						),
@@ -140,7 +140,7 @@ $this->menuActiveItems[BController::MENU_MENU_ITEM] = 1;
 											'imageUrl'=>false,
 											'options'=>array('class'=>'btn mini blue-stripe'),
 											'url'=>function($data) {
-												return $this->createUrl('menu/dish', array('pid'=>$data['pid'], 'id'=>$data['id']));
+												return '/menu/dish/'.$data['pid'].'/'.$data['id'].'/';
 											},
 									),
 									'delete'=>array(
@@ -149,7 +149,7 @@ $this->menuActiveItems[BController::MENU_MENU_ITEM] = 1;
 											'options'=>array('class'=>'btn mini red-stripe'),
 											'click'=>'confirmDelete',
 											'url'=>function($data) {
-												return $this->createUrl('menu/deleteDish', array('id'=>$data['id']));
+												return '/menu/deleteDish/'.$data['id'].'/';
 											},
 									),
 							),

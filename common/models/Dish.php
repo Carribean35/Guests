@@ -18,7 +18,7 @@ class Dish extends EActiveRecord
 	
 	private $_imagesPath;
 	private $_imagesUrl;
-	private $_imageSizes = array(array(440, 452), array(208, 131));
+	private $_imageSizes = array(array(440, 452), array(199, 129));
 	
 	public $image;
 	

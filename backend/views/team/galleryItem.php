@@ -5,11 +5,12 @@
 $this->title_h3=$header;
 
 $this->breadcrumbs=array(
-	'Наша команда' => $this->createUrl('team/index'),
+	'Наша команда',
+	'Галерея' => $this->createUrl('team/gallery'),
 	$header
 );
 
-$this->menuActiveItems[BController::TEAM_MENU_ITEM] = 1;
+$this->menuActiveItems[BController::TEAM_MENU_GALLERY] = 1;
 
 Yii::app()->clientScript->registerScriptFile(
 	Yii::app()->assetManager->publish(
@@ -26,10 +27,10 @@ Yii::app()->clientScript->registerCssFile(
 	CClientScript::POS_END
 );
 
-$imageUrl = '/img/noimage.gif';
+$imageUrl = '/img/size-665x439.jpg';
 
-if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
-	$imageUrl = $model->imagesUrl.$model->id;
+if (!empty($model->id) && file_exists($model->imagesPath.'admin_preview/'.$model->id))
+	$imageUrl = $model->imagesUrl.'admin_preview/'.$model->id;
 
 ?>
 <div>
@@ -44,7 +45,7 @@ if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 			'errorCssClass'=>'error',
 			'afterValidate'=>'js:contentAfterClientValidate',
 		),
-		'htmlOptions'=>array('class'=>'form-horizontal', 'rel' => $this->createUrl('team/index'), 'enctype'=>'multipart/form-data'),
+		'htmlOptions'=>array('class'=>'form-horizontal', 'rel' => $this->createUrl('team/gallery'), 'enctype'=>'multipart/form-data'),
 
 	)); ?>
 	
@@ -86,7 +87,7 @@ if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 		<div class="form-actions large">
 			<?php echo CHtml::htmlButton('<i class="icon-ok"></i> Сохранить', array('class' => 'btn blue', 'type' => 'submit')); ?>
 			<?php if (!empty($model->id)) : ?>
-				<a href="/team/deleteFoto/<?php echo $model->id?>/" onclick="return confirmDelete()"><?php echo CHtml::htmlButton('<i class="icon-remove"></i> Удалить', array('class' => 'btn red', 'type' => 'button')); ?></a>
+				<a href="/team/deleteGalleryItem/<?php echo $model->id?>/" onclick="return confirmDelete()"><?php echo CHtml::htmlButton('<i class="icon-remove"></i> Удалить', array('class' => 'btn red', 'type' => 'button')); ?></a>
 			<?php endif;?>
 			<?php echo CHtml::htmlButton('Отменить', array('class' => 'btn', 'type' => 'reset')); ?>
 		</div>

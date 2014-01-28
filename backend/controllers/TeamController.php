@@ -13,43 +13,64 @@ class TeamController extends RController
 		$this->render('index', array('team' => $team, 'worker' => $worker));
 	}
 	
-	public function actionFoto($id = false) 
+	public function actionGallery() {
+		$teamGallery = new TeamGallery();
+		$this->render('gallery', array('teamGallery' => $teamGallery));
+	}
+	
+	public function actionGalleryItem($id = false) 
 	{
 		if ($id !== false) 
 		{
 			$header = 'Редактировать фото';
-			$model = $this->loadModel('Team', $id);
+			$model = $this->loadModel('TeamGallery', $id);
 		} else  
 		{
 			$header = 'Добавить фото команды';
-			$model = new Team();
+			$model = new TeamGallery();
 		}
 		
-		if(isset($_POST['Team'])) {
-			$model->attributes=$_POST['Team'];
+		if(isset($_POST['TeamGallery'])) {
+			$model->attributes=$_POST['TeamGallery'];
 
 			if($model->save()) {
-				if (!empty($_FILES['Team']['tmp_name']['image'])) {
-					Yii::app()->ih
-					->load($_FILES['Team']['tmp_name']['image'])
-					->resize(200,140)
-					->save($model->imagesPath.$model->id);
+				if (!empty($_FILES['TeamGallery']['tmp_name']['image'])) {
+					if (!file_exists($model->imagesPath.'original/'))
+						mkdir($model->imagesPath.'original/');
+					if (!file_exists($model->imagesPath.'admin_preview/'))
+						mkdir($model->imagesPath.'admin_preview/');
+						
+					$ih = Yii::app()->ih
+					->load($_FILES['TeamGallery']['tmp_name']['image'])
+					->save($model->imagesPath.'original/'.$model->id)
+					->adaptiveThumb(200,150)
+					->save($model->imagesPath.'admin_preview/'.$model->id);
+						
+					$sizes = $model->getImageSizes();
+						
+					foreach ($sizes AS $key => $val) {
+						if (!file_exists($model->imagesPath.$val[0].'x'.$val[1].'/'))
+							mkdir($model->imagesPath.$val[0].'x'.$val[1].'/');
+						$ih->reload()
+						->adaptiveThumb($val[0], $val[1])
+						->save($model->imagesPath.$val[0].'x'.$val[1].'/'.$model->id);
+					}
 				} else if (!$model->existImage()){
 					$model->visible = 0;
 					$model->save();
 				}
 				
-				$this->redirect($this->createUrl('team/index'));
+				$this->redirect($this->createUrl('team/gallery'));
 			}
 		}
 		
-		$this->render('foto', array('header' => $header, 'model' => $model));
+		$this->render('galleryItem', array('header' => $header, 'model' => $model));
 	}
 	
-	public function actionDeleteFoto($id) {
-		$team = $this->loadModel('Team', $id);
+	public function actionDeleteGalleryItem($id) {
+		$team = $this->loadModel('TeamGallery', $id);
 		$team->deleteFull();
-		$this->redirect($this->createUrl('team/index'));
+		$this->redirect($this->createUrl('team/gallery'));
 	}
 	
 	public function actionWorker($id = false) 
