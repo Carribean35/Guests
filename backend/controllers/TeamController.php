@@ -35,29 +35,7 @@ class TeamController extends RController
 
 			if($model->save()) {
 				if (!empty($_FILES['TeamGallery']['tmp_name']['image'])) {
-					if (!file_exists($model->imagesPath.'original/'))
-						mkdir($model->imagesPath.'original/');
-					if (!file_exists($model->imagesPath.'admin_preview/'))
-						mkdir($model->imagesPath.'admin_preview/');
-						
-					$ih = Yii::app()->ih
-					->load($_FILES['TeamGallery']['tmp_name']['image'])
-					->save($model->imagesPath.'original/'.$model->id)
-					->adaptiveThumb(200,150)
-					->save($model->imagesPath.'admin_preview/'.$model->id);
-						
-					$sizes = $model->getImageSizes();
-						
-					foreach ($sizes AS $key => $val) {
-						if (!file_exists($model->imagesPath.$val[0].'x'.$val[1].'/'))
-							mkdir($model->imagesPath.$val[0].'x'.$val[1].'/');
-						$ih->reload()
-						->adaptiveThumb($val[0], $val[1])
-						->save($model->imagesPath.$val[0].'x'.$val[1].'/'.$model->id);
-					}
-				} else if (!$model->existImage()){
-					$model->visible = 0;
-					$model->save();
+					$model->saveImage($_FILES['TeamGallery']['tmp_name']['image']);
 				}
 				
 				$this->redirect($this->createUrl('team/gallery'));
@@ -67,13 +45,18 @@ class TeamController extends RController
 		$this->render('galleryItem', array('header' => $header, 'model' => $model));
 	}
 	
+	public function actionWorker() {
+		$worker = new Worker();
+		$this->render('worker', array('worker' => $worker));
+	}
+	
 	public function actionDeleteGalleryItem($id) {
 		$team = $this->loadModel('TeamGallery', $id);
 		$team->deleteFull();
 		$this->redirect($this->createUrl('team/gallery'));
 	}
 	
-	public function actionWorker($id = false) 
+	public function actionWorkerItem($id = false) 
 	{
 		if ($id !== false) 
 		{
@@ -90,25 +73,39 @@ class TeamController extends RController
 
 			if($model->save()) {
 				if (!empty($_FILES['Worker']['tmp_name']['image'])) {
-					Yii::app()->ih
-					->load($_FILES['Worker']['tmp_name']['image'])
-					->resize(200,140)
-					->save($model->imagesPath.$model->id);
-				} else if (!$model->existImage()){
-					$model->visible = 0;
-					$model->save();
+					$model->saveImage($_FILES['Worker']['tmp_name']['image']);
 				}
 				
-				$this->redirect($this->createUrl('team/index'));
+				$this->redirect($this->createUrl('team/worker'));
 			}
 		}
 		
-		$this->render('worker', array('header' => $header, 'model' => $model));
+		$this->render('workerItem', array('header' => $header, 'model' => $model));
 	}
 	
 	public function actionDeleteWorker($id) {
 		$worker = $this->loadModel('Worker', $id);
 		$worker->deleteFull();
-		$this->redirect($this->createUrl('team/index'));
+		$this->redirect($this->createUrl('team/worker'));
+	}
+	
+	public function actionJob()
+	{
+		$header = 'Вакансии';
+		$model = new Job();
+	
+		if(isset($_POST['Job'])) {
+			$model->attributes=$_POST['Job'];
+	
+			if($model->save()) {
+				if (!empty($_FILES['Job']['tmp_name']['image'])) {
+					$model->saveImage($_FILES['Job']['tmp_name']['image']);
+				}
+	
+				$this->redirect($this->createUrl('team/job'));
+			}
+		}
+	
+		$this->render('job', array('header' => $header, 'model' => $model));
 	}
 }

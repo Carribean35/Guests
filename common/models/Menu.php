@@ -13,29 +13,12 @@
 class Menu extends EActiveRecord
 {
 	
-	private $_imagesPath;
-	private $_imagesUrl;
-	private $_imageSizes = array(array(208, 131));
-	
-	public $image;
-	
 	public function init()
 	{
 		parent::init();
-		$this->_imagesPath = Yii::getPathOfAlias('common').'/data/menu/section/';
-		$this->_imagesUrl = '/data/menu/section/';
-	}
-	
-	public function getImagesPath() {
-		return $this->_imagesPath;
-	}
-
-	public function getImagesUrl() {
-		return $this->_imagesUrl;
-	}
-	
-	public function getImageSizes() {
-		return $this->_imageSizes;
+		$this->imagesPath = Yii::getPathOfAlias('common').'/data/menu/section/';
+		$this->imagesUrl = '/data/menu/section/';
+		$this->imageSizes = array(array(208, 131));
 	}
 	
 	/**
@@ -137,18 +120,8 @@ class Menu extends EActiveRecord
 		}
 		$dishes = Dish::model()->findAll('pid=:pid', array(':pid'=>$this->id));
 		foreach($dishes AS $key => $val) {
-			$val->deleteDish();
+			$val->deleteFull();
 		}
-		if (file_exists($this->imagesPath.'original/'.$this->id))
-			unlink($this->imagesPath.'original/'.$this->id);
-		if (file_exists($this->imagesPath.'admin_preview/'.$this->id))
-			unlink($this->imagesPath.'admin_preview/'.$this->id);
-		
-		foreach($this->_imageSizes AS $key => $val) {
-			if (file_exists($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id))
-				unlink($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id);
-		}
-		
-		$this->delete();
+		$this->deleteFull();
 	}
 }

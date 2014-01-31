@@ -35,13 +35,7 @@ class NewsController extends RController
 
 			if($model->save()) {
 				if (!empty($_FILES['News']['tmp_name']['image'])) {
-					Yii::app()->ih
-					->load($_FILES['News']['tmp_name']['image'])
-					->resize(200,140)
-					->save($model->imagesPath.$model->id);
-				} else if (!$model->existImage()){
-					$model->visible = 0;
-					$model->save();
+					$model->saveImage($_FILES['News']['tmp_name']['image']);
 				}
 				
 				$this->redirect($this->createUrl('news/index'));

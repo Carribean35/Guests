@@ -115,9 +115,13 @@ if (!empty($model->id) && file_exists($model->imagesPath.$model->id))
 </div>
 
 <script type="text/javascript">
+$(document).ready(function() {
+
 	$(document).ready(function() {
 		tinymce.init({
 		    selector: "textarea.tinymce"
 		 });
 	})
+	
+}) 
 </script>

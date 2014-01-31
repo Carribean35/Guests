@@ -14,29 +14,12 @@
 class News extends EActiveRecord
 {
 	
-	private $_imagesPath;
-	private $_imagesUrl;
-	
-	public $image;
-	
-	
 	public function init()
 	{
 		parent::init();
-		$this->_imagesPath = Yii::getPathOfAlias('common').'/data/news/';
-		$this->_imagesUrl = '/data/news/';
-	}
-	
-	public function getImagesPath() {
-		return $this->_imagesPath;
-	}
-	
-	public function getImagesUrl() {
-		return $this->_imagesUrl;
-	}
-	
-	public function existImage() {
-		return file_exists($this->imagesPath.$this->id);
+		$this->imagesPath = Yii::getPathOfAlias('common').'/data/news/';
+		$this->imagesUrl = '/data/news/';
+		$this->imageSizes = array(array(665, false));
 	}
 	
 	/**
@@ -132,10 +115,5 @@ class News extends EActiveRecord
 	{
 		return parent::model($className);
 	}
-	
-	public function deleteFull() {
-		if (file_exists($this->imagesPath.$this->id))
-			unlink($this->imagesPath.$this->id);
-		$this->delete();
-	}
+
 }
