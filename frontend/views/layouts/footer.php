@@ -1,3 +1,4 @@
+	</div><!-- .wrapper -->
 	<div class="footer">
 		<div class="footer-menu">
 			<ul>

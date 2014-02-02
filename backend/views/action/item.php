@@ -28,8 +28,8 @@ Yii::app()->clientScript->registerCssFile(
 
 $imageUrl = '/img/noimage.gif';
 
-if (!empty($model->id) && file_exists($model->imagesPath.'admin_preview/'.$model->id))
-	$imageUrl = $model->imagesUrl.'admin_preview/'.$model->id;
+if (!empty($model->id) && file_exists($model->imagesPath.'admin_preview/'.$model->id.".jpg"))
+	$imageUrl = $model->imagesUrl.'admin_preview/'.$model->id.".jpg";
 
 ?>
 <div>
@@ -78,7 +78,7 @@ if (!empty($model->id) && file_exists($model->imagesPath.'admin_preview/'.$model
 		<div class="control-group">
 			<?php echo $form->label($model,'text',array('class'=>'control-label')); ?>
 			<div class="controls">
-				<?php echo $form->textArea($model,'text',array('class'=>'m-wrap large')); ?>
+				<?php echo $form->textArea($model,'text',array('class'=>'m-wrap span6')); ?>
 				<span class="help-inline"><?php echo $form->error($model,'text'); ?></span>
 			</div>
 		</div>

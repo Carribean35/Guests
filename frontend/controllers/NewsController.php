@@ -4,20 +4,27 @@
  * NewsController class
  *
  */
-class NewsController extends EController
+class NewsController extends FController
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+		$criteria=new CDbCriteria;
+		$criteria->order = "createDate DESC";
+		$criteria->condition = "visible = 1 AND createDate <= NOW()";
+		$news = News::model()->findAll($criteria);
+
+		$this->render('index', array('news' => $news));
 	}
 
 	public function newsMainBlock() {
 		$criteria=new CDbCriteria;
 		$criteria->limit = 4;
-		$criteria->order = "createDate";
-		$news = News::model()->find($criteria);
-		
-		return $this->renderPartial("newsMainBlock", array('news' => $news));
+		$criteria->order = "createDate DESC";
+		$criteria->condition = "visible = 1 AND createDate <= NOW()";
+		$news = News::model()->findAll($criteria);
+		if (empty($news))
+			return '';
+		return $this->renderPartial("newsMainBlock", array('news' => $news), true);
 	}
 	
 	

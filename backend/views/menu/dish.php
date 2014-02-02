@@ -23,8 +23,8 @@ Yii::app()->clientScript->registerCssFile(
 
 $imageUrl = '/img/size-440x452.jpg';
 
-if (!empty($model->id) && file_exists($model->imagesPath.'admin_preview/'.$model->id))
-	$imageUrl = $model->imagesUrl.'admin_preview/'.$model->id;
+if (!empty($model->id) && file_exists($model->imagesPath.'admin_preview/'.$model->id.".jpg"))
+	$imageUrl = $model->imagesUrl.'admin_preview/'.$model->id.".jpg";
 
 ?>
 <div>

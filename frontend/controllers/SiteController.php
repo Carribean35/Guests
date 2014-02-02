@@ -4,14 +4,18 @@
  * SiteController class
  *
  */
-class SiteController extends EController
+class SiteController extends FController
 {
 	public function actionIndex()
 	{
 		
+		list($newsController) = Yii::app()->createController('news');
+		$newsMainBlock = $newsController->newsMainBlock();
 		
-		
-		$this->render('index');
+		list($menuController) = Yii::app()->createController('menu');
+		$menuMainBlock = $menuController->menuMainBlock();
+
+		$this->render('index', array('newsMainBlock' => $newsMainBlock, 'menuMainBlock' => $menuMainBlock));
 	}
 
 	/**

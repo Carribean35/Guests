@@ -35,7 +35,7 @@ $this->menuActiveItems[BController::TEAM_MENU_WORKER] = 1;
 						'name'=>'id',
 						'type'=>'html',
 						'value'=>function($data) {
-							return CHtml::image($data->getImagesUrl().$data->id, false, array('class'=>'listImg'));
+							return CHtml::image($data->getImagesUrl()."admin_preview/".$data->id.".jpg", false, array('class'=>'listImg'));
 						}
 					),
 					array(

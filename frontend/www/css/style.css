@@ -435,6 +435,7 @@ body {
 	font-size: 16px;
 	line-height: 30px;	
 	font-weight: bolder;
+	text-transform: uppercase;
 }
 
 .wrapper .menu-main-block .main-menu-item a {
@@ -872,6 +873,7 @@ body {
 	top: 196px;
 	left: 35px;
 	width: 220px;
+	z-index: 6;
 }
 
 .wrapper .left-menu .top-bg{

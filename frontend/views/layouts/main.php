@@ -1,9 +1,9 @@
 <?php 
-$this->renderPartial("header");
+$this->renderPartial("//layouts/header");
 ?>	
 <?php 
 echo $content;
 ?>
 <?php 
-$this->renderPartial("footer");
+$this->renderPartial("//layouts/footer");
 ?>
