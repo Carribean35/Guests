@@ -19,4 +19,12 @@ class MenuController extends FController
 		
 		return $this->renderPartial("menuMainBlock", array('sections' => $sections), true);
 	}
+	
+	public function dropdownMenu() {
+		$connection = Yii::app()->db;
+		$command = $connection->createCommand('SELECT * , 100 * ( IF( pid = 0, id, pid ) ) + id AS srt 	FROM  `menu` ORDER BY srt');
+		$rows = $command->queryAll();
+	return "!!!";
+//		var_dump($rows);
+	}
 }

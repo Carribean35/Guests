@@ -2,15 +2,17 @@
 
 $this->menuActiveItems[FController::NEWS_MENU_ITEM] = 1;
 ?>
-<div class="left-menu">
-	<div class="top-bg"></div>
-	<div class="middle-bg">
-		<ul>
-			<li><a href="/action/">Акции</a></li>
-			<li class="active"><a >Новости</a></li>
-		</ul>
+<div class="left-column-block">
+	<div class="left-menu">
+		<div class="top-bg"></div>
+		<div class="middle-bg">
+			<ul>
+				<li><a href="/action/">Акции</a></li>
+				<li class="active"><a >Новости</a></li>
+			</ul>
+		</div>
+		<div class="bottom-bg"></div>
 	</div>
-	<div class="bottom-bg"></div>
 </div>
 
 <div class="news-block">

@@ -19,7 +19,7 @@
 					<li><img src="img/gallery-image-1.jpg"></li>
 				</ul>
 			</div>
-			<div class="pagination" style="width:60px">
+			<div class="paginat" style="width:60px">
 				<ul>
 					<li></li>
 					<li class="active"></li>

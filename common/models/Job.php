@@ -82,9 +82,9 @@ class Job extends CFormModel
 			
 		$ih = Yii::app()->ih
 		->load($filePath)
-		->save($this->imagesPath.'original/'.$this->id)
+		->save($this->imagesPath.'original/'.$this->id.".jpg")
 		->adaptiveThumb(200,150)
-		->save($this->imagesPath.'admin_preview/'.$this->id);
+		->save($this->imagesPath.'admin_preview/'.$this->id.".jpg");
 			
 		foreach ($this->imageSizes AS $key => $val) {
 			if (!file_exists($this->imagesPath.$val[0].'x'.$val[1].'/'))
@@ -96,19 +96,19 @@ class Job extends CFormModel
 			} else {
 				$ih->adaptiveThumb($val[0], $val[1]);
 			}
-			$ih->save($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id);
+			$ih->save($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id.".jpg");
 		}
 	}
 	
 	public function deleteFull() {
-		if (file_exists($this->imagesPath.'original/'.$this->id))
-			unlink($this->imagesPath.'original/'.$this->id);
-		if (file_exists($this->imagesPath.'admin_preview/'.$this->id))
-			unlink($this->imagesPath.'admin_preview/'.$this->id);
+		if (file_exists($this->imagesPath.'original/'.$this->id.".jpg"))
+			unlink($this->imagesPath.'original/'.$this->id.".jpg");
+		if (file_exists($this->imagesPath.'admin_preview/'.$this->id.".jpg"))
+			unlink($this->imagesPath.'admin_preview/'.$this->id.".jpg");
 	
 		foreach($this->_imageSizes AS $key => $val) {
-			if (file_exists($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id))
-				unlink($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id);
+			if (file_exists($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id.".jpg"))
+				unlink($this->imagesPath.$val[0].'x'.$val[1].'/'.$this->id.".jpg");
 		}
 		$this->delete();
 	}

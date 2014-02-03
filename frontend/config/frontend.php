@@ -41,7 +41,8 @@ return array(
 			'scriptMap' => array(
 				'bootstrap.min.css' => false,
 				'bootstrap.min.js' => false,
-				'bootstrap-yii.css' => false
+				'bootstrap-yii.css' => false,
+				'jquery.min.js' => false,
 			)
 		),
 		'urlManager' => array(

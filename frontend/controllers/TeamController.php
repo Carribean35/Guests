@@ -21,5 +21,31 @@ class TeamController extends FController
 		
 		$this->render('index', array('teamGallery' => $teamGallery, 'workers' => $workers));
 	}
+	
+	public function actionJob() {
+		$model = new Job();
+		$this->render('job', array('model' => $model));
+	}
+	
+	public function actionResume() {
+		$model = new Resume();
+		
+		if(isset($_POST['Resume'])) {
+			$model->attributes=$_POST['Resume'];
+			
+			$timestamp = CDateTimeParser::parse($model->birthDate,'dd.MM.yyyy');
+			$model->birthDate = date("Y-m-d", $timestamp);
+			
+			$model->save();
+			echo CJSON::encode(
+				array(
+					'error'=>false,
+				)
+			);
+			Yii::app()->end();
+		}
+		
+		$this->render('resume', array('model' => $model));
+	}
 
 }

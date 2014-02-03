@@ -93,7 +93,7 @@ class TeamController extends RController
 	{
 		$header = 'Вакансии';
 		$model = new Job();
-	
+
 		if(isset($_POST['Job'])) {
 			$model->attributes=$_POST['Job'];
 	
@@ -107,5 +107,24 @@ class TeamController extends RController
 		}
 	
 		$this->render('job', array('header' => $header, 'model' => $model));
+	}
+	
+	public function actionResume() {
+		$resume = new Resume();
+		$this->render('resume', array('resume' => $resume));
+	}
+	
+	public function actionResumeItem($id) 
+	{
+		$model = $this->loadModel('Resume', $id);
+		$timestamp = CDateTimeParser::parse($model->birthDate,'yyyy-MM-dd');
+		$model->birthDate = date("d.m.Y", $timestamp);
+		
+		$this->render('resumeItem', array('model' => $model));
+	}
+	
+	public function actionDeleteResume($id) {
+		Resume::model()->deleteByPk($id);
+		$this->redirect($this->createUrl('team/resume'));
 	}
 }
