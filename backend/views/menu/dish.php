@@ -95,6 +95,14 @@ if (!empty($model->id) && file_exists($model->imagesPath.'admin_preview/'.$model
 		</div>
 		
 		<div class="control-group">
+			<?php echo $form->label($model,'calories',array('class'=>'control-label')); ?>
+			<div class="controls">
+				<?php echo $form->textField($model,'calories',array('class'=>'m-wrap small')); ?>
+				<span class="help-inline"><?php echo $form->error($model,'calories'); ?></span>
+			</div>
+		</div>
+		
+		<div class="control-group">
 			<?php echo $form->label($model,'recommended',array('class'=>'control-label')); ?>
 			<div class="controls">
 				<?php echo $form->checkBox($model,'recommended'); ?>

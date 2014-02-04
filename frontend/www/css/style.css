@@ -133,7 +133,7 @@ body {
 	position: absolute;
 	top: 85px;
 	left: 280px;
-	z-index:2;
+	z-index:10;
 	display: none;
 }
 .wrapper .submenu .submenu-content {
@@ -190,7 +190,7 @@ body {
 .wrapper .logo {
 	left: 19px;
 	position: absolute;
-	z-index: 4;
+	z-index: 15;
 }
 
 .wrapper .private-office {
@@ -214,7 +214,7 @@ body {
 	background: url(../img/menu-bg.png) repeat-x;
 	position: relative;
 	top: 29px;
-	z-index: 3;
+	z-index: 12;
 }
 
 .banner-block {
@@ -944,7 +944,6 @@ div.h2 {
 .wrapper .left-menu ul li{
 	font-size: 18px;
 	margin: 12px 0;
-	font-weight: bolder;
 }
 
 .wrapper .left-menu ul li a{
@@ -980,6 +979,7 @@ div.h2 {
 
 .wrapper .left-menu.biege ul li.active a{
 	color: #ffffff;
+	font-weight: bolder;
 }
 
 
@@ -1167,6 +1167,7 @@ i {
 .wrapper .menu-block {
 	padding: 135px 15px 30px 260px;
 	background: #ffffff;
+	min-height: 1000px;
 }
 
 .wrapper .menu-block .h1 {
@@ -1185,6 +1186,28 @@ i {
 	background: url(../img/dish-bg.png) no-repeat;
 	padding: 9px 8px;
 	position: relative;
+}
+
+.wrapper .menu-block .menu-list .menu-item .img-container{
+	position: relative;	
+}
+
+.wrapper .menu-block .menu-list .menu-item .img-container .corner{
+	position: absolute;
+	width: 13px;
+	height: 13px;
+}
+
+.wrapper .menu-block .menu-list .menu-item .img-container .corner.tl{
+	top: 0;
+	left: 0;
+	background: url(../img/history-corners.png) no-repeat -3px -3px;
+}
+
+.wrapper .menu-block .menu-list .menu-item .img-container .corner.tr{
+	top: 0;
+	right: 0;
+	background: url(../img/history-corners.png) no-repeat -10px -3px;
 }
 
 .wrapper .menu-block .menu-list .menu-item .content-container {

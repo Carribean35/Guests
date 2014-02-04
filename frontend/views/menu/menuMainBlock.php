@@ -1,6 +1,6 @@
 <?php foreach ($sections AS $key => $val) :?>
 <div class="main-menu-item">
-	<a href="#">
+	<a href="/menu/<?php echo $val['id']?>/">
 		<img src="<?php echo $val->imagesUrl.'208x131/'.$val['id']?>.jpg">
 		<div class="name"><?php echo $val['name']?></div>
 	</a>

@@ -10,6 +10,7 @@
  * @property string $text
  * @property integer $price
  * @property integer $weight
+ * @property integer $calories
  * @property integer $recommended
  * @property integer $visible
  */
@@ -40,13 +41,13 @@ class Dish extends EActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('pid, name, text, price, weight', 'required'),
-			array('pid, price, weight, recommended, visible', 'numerical', 'integerOnly'=>true),
+			array('pid, name, text, price, weight, calories', 'required'),
+			array('pid, price, weight, calories, recommended, visible', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>100),
 			array('text', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, pid, name, text, price, weight, recommended, visible', 'safe', 'on'=>'search'),
+			array('id, pid, name, text, price, weight, calories, recommended, visible', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,6 +74,7 @@ class Dish extends EActiveRecord
 			'text' => Yii::t('main', 'Text'),
 			'price' => Yii::t('main', 'Price'),
 			'weight' => Yii::t('main', 'Weight'),
+			'calories' => Yii::t('main', 'Calories'),
 			'recommended' => Yii::t('main', 'Recommended'),
 			'visible' => Yii::t('main', 'Visible'),
 			'image' => Yii::t('main', 'Image'),
@@ -103,6 +105,7 @@ class Dish extends EActiveRecord
 		$criteria->compare('text',$this->text,true);
 		$criteria->compare('price',$this->price);
 		$criteria->compare('weight',$this->weight);
+		$criteria->compare('calories',$this->calories);
 		$criteria->compare('recommended',$this->recommended);
 		$criteria->compare('visible',$this->visible);
 
