@@ -9,13 +9,15 @@ class SiteController extends FController
 	public function actionIndex()
 	{
 		
+		$mainGallery = new MainGallery();
+		
 		list($newsController) = Yii::app()->createController('news');
 		$newsMainBlock = $newsController->newsMainBlock();
 		
 		list($menuController) = Yii::app()->createController('menu');
 		$menuMainBlock = $menuController->menuMainBlock();
 
-		$this->render('index', array('newsMainBlock' => $newsMainBlock, 'menuMainBlock' => $menuMainBlock));
+		$this->render('index', array('newsMainBlock' => $newsMainBlock, 'menuMainBlock' => $menuMainBlock, 'mainGallery' => $mainGallery));
 	}
 
 	/**

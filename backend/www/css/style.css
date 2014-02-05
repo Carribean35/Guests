@@ -5479,3 +5479,9 @@ div.radio.disabled:hover {
 	padding-top: 7px;
 	font-size: 14px;
 }
+
+.main-gallery .span3 {
+	margin-left: 0;
+	margin-right: 1.5%;
+	
+}
