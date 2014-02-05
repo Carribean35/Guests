@@ -13,10 +13,9 @@
 		<div class="gallery-ben">
 			<div class="ul-container">
 				<ul>
-					<li><img src="img/gallery-image-1.jpg"></li>
-					<li><img src="img/gallery-image-1.jpg"></li>
-					<li><img src="img/gallery-image-1.jpg"></li>
-					<li><img src="img/gallery-image-1.jpg"></li>
+					<?php foreach($mainGallery AS $key => $val) :?>
+					<li><img src="<?php echo $val->imagesUrl."655x346/".$val?>"></li>
+					<?php endforeach;?>
 				</ul>
 			</div>
 			<div class="paginat" style="width:60px">

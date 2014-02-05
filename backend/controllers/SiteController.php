@@ -13,7 +13,21 @@ class SiteController extends RController
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+		$mainGallery = new MainGallery();
+		
+		if(!empty($_FILES['MainGallery']['name']['image'])) {
+			$mainGallery->saveImage($_FILES['MainGallery']['tmp_name']['image']);
+			$this->redirect("/");
+		}
+		
+		$this->render('index', array('mainGallery' => $mainGallery));
+	}
+	
+	public function actionDeleteMainGallery() {
+		if (!empty($_POST['name'])) {
+			$mainGallery = new MainGallery();
+			$mainGallery->deleteImage($_POST['name']);
+		}
 	}
 	
 	public function actionError()
