@@ -51,7 +51,7 @@ $this->menuActiveItems[BController::TEAM_MENU_RESUME] = 1;
 								'imageUrl'=>false,
 								'options'=>array('class'=>'btn mini blue-stripe'),
 								'url'=>function($data) {
-									return $this->createUrl('team/resumeItem', array('id'=>$data['id']));
+									return '/team/resumeItem/'.$data['id'].'/';
 								},
 							),
 							'add'=>array(
@@ -60,7 +60,7 @@ $this->menuActiveItems[BController::TEAM_MENU_RESUME] = 1;
 								'options'=>array('class'=>'btn mini red-stripe'),
 								'click'=>'confirmDelete',
 								'url'=>function($data) {
-									return $this->createUrl('team/deleteResume', array('id'=>$data['id']));
+									return '/team/deleteResume/'.$data['id'].'/';
 								},
 							),
 						),

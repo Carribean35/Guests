@@ -66,7 +66,7 @@ $this->menuActiveItems[BController::TEAM_MENU_WORKER] = 1;
 								'imageUrl'=>false,
 								'options'=>array('class'=>'btn mini blue-stripe'),
 								'url'=>function($data) {
-									return $this->createUrl('team/workerItem', array('id'=>$data['id']));
+									return '/team/workerItem/'.$data['id'].'/';
 								},
 							),
 							'add'=>array(
@@ -75,7 +75,7 @@ $this->menuActiveItems[BController::TEAM_MENU_WORKER] = 1;
 								'options'=>array('class'=>'btn mini red-stripe'),
 								'click'=>'confirmDelete',
 								'url'=>function($data) {
-									return $this->createUrl('team/deleteWorker', array('id'=>$data['id']));
+									return '/team/deleteWorker/'.$data['id'].'/';
 								},
 							),
 						),

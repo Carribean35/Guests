@@ -18,10 +18,10 @@
 			<div class="site-menu">
 				<ul>
 					<li>
-						<a href="javascript:void(0);" id="showSubmenu">МЕНЮ</a>
+						<a href="javascript:void(0);" id="showSubmenu" class="<?php if (!empty($this->menuActiveItems[FController::MENU_MENU_ITEM])) { echo 'active'; } ?>">МЕНЮ</a>
 					</li>
 					<li>
-						<a href="#">О РЕСТОРАНЕ</a>
+						<a href="/about/" class="<?php if (!empty($this->menuActiveItems[FController::ABOUT_MENU_ITEM])) { echo 'active'; } ?>">О РЕСТОРАНЕ</a>
 					</li>
 					<li>
 						<a href="#">ДОСТАВКА</a>
@@ -33,9 +33,6 @@
 						<a href="/team/" class="<?php if (!empty($this->menuActiveItems[FController::TEAM_MENU_ITEM])) { echo 'active'; } ?>">НАША КОМАНДА</a>
 					</li><li>
 						<a href="#">БОНУСЫ</a>
-					</li>
-					<li>
-						<a href="#"></a>
 					</li>
 				</ul>
 			</div>

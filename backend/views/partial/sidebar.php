@@ -80,7 +80,7 @@
 											&& empty($this->menuActiveItems[BController::TEAM_MENU_RESUME])
 									) { echo 'style="display:none;"'; } ?>>
 				<li class="<?php if (!empty($this->menuActiveItems[BController::TEAM_MENU_GALLERY])) { echo 'active'; } ?>">
-					<a href="<?php echo $this->createUrl('team/gallery') ?>">Галлерея</a>
+					<a href="<?php echo $this->createUrl('team/gallery') ?>">Галерея</a>
 				</li>
 				<li  class="<?php if (!empty($this->menuActiveItems[BController::TEAM_MENU_WORKER])) { echo 'active'; } ?>">
 					<a href="<?php echo $this->createUrl('team/worker') ?>">Сотрудники</a>
@@ -90,6 +90,31 @@
 				</li>
 				<li  class="<?php if (!empty($this->menuActiveItems[BController::TEAM_MENU_RESUME])) { echo 'active'; } ?>">
 					<a href="<?php echo $this->createUrl('team/resume') ?>">Анкеты</a>
+				</li>
+			</ul>
+		</li>
+		<?php endif;?>
+		
+		<?php if(Yii::app()->user->checkAccess('About.*')): ?>
+		<li class="start <?php if (!empty($this->menuActiveItems[BController::ABOUT_RESTAURANT_MENU_ITEM])
+											|| !empty($this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM])
+									) { echo 'active'; } ?>">
+			<a href="javascript: ;">
+				<i class="icon-flag"></i>
+				<span class="title">О ресторане</span>
+				<span class="selected"></span>
+				<span class="arrow <?php if (!empty($this->menuActiveItems[BController::ABOUT_RESTAURANT_MENU_ITEM])
+											|| !empty($this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM])
+									) { echo 'open'; } ?>"></span>
+			</a>
+			<ul class="sub-menu" <?php if (empty($this->menuActiveItems[BController::ABOUT_RESTAURANT_MENU_ITEM])
+											&& empty($this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM])
+									) { echo 'style="display:none;"'; } ?>>
+				<li class="<?php if (!empty($this->menuActiveItems[BController::ABOUT_RESTAURANT_MENU_ITEM])) { echo 'active'; } ?>">
+					<a href="<?php echo $this->createUrl('about/') ?>">О ресторане</a>
+				</li>
+				<li  class="<?php if (!empty($this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM])) { echo 'active'; } ?>">
+					<a href="<?php echo $this->createUrl('about/filials') ?>">Филиалы</a>
 				</li>
 			</ul>
 		</li>

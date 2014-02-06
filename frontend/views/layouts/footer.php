@@ -2,11 +2,11 @@
 	<div class="footer">
 		<div class="footer-menu">
 			<ul>
-				<li><a href="#">Меню</a></li>
-				<li><a href="#">О ресторане</a></li>
+				<li><a href="/menu/">Меню</a></li>
+				<li><a href="/about/">О ресторане</a></li>
 				<li><a href="#">Доставка</a></li>
-				<li><a href="#">Все интересное</a></li>
-				<li><a href="#">Наша команда</a></li>
+				<li><a href="/news/">Все интересное</a></li>
+				<li><a href="/team/">Наша команда</a></li>
 				<li><a href="#">Поставщикам</a></li>
 				<li><a href="#">Бонусы</a></li>
 			</ul>

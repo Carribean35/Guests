@@ -64,7 +64,7 @@ $this->menuActiveItems[BController::TEAM_MENU_ITEM] = 1;
 								'imageUrl'=>false,
 								'options'=>array('class'=>'btn mini blue-stripe'),
 								'url'=>function($data) {
-									return $this->createUrl('team/foto', array('id'=>$data['id']));
+									return '/team/foto/'.$data['id'].'/';
 								},
 							),
 							'add'=>array(
@@ -73,7 +73,7 @@ $this->menuActiveItems[BController::TEAM_MENU_ITEM] = 1;
 								'options'=>array('class'=>'btn mini red-stripe'),
 								'click'=>'confirmDelete',
 								'url'=>function($data) {
-									return $this->createUrl('team/deleteFoto', array('id'=>$data['id']));
+									return '/team/deleteFoto/'.$data['id'].'/';
 								},
 							),
 						),
@@ -133,7 +133,7 @@ $this->menuActiveItems[BController::TEAM_MENU_ITEM] = 1;
 								'imageUrl'=>false,
 								'options'=>array('class'=>'btn mini blue-stripe'),
 								'url'=>function($data) {
-									return $this->createUrl('team/worker', array('id'=>$data['id']));
+									return '/team/worker/'.$data['id'].'/';
 								},
 							),
 							'add'=>array(
@@ -142,7 +142,7 @@ $this->menuActiveItems[BController::TEAM_MENU_ITEM] = 1;
 								'options'=>array('class'=>'btn mini red-stripe'),
 								'click'=>'confirmDelete',
 								'url'=>function($data) {
-									return $this->createUrl('team/deleteWorker', array('id'=>$data['id']));
+									return '/team/deleteWorker/'.$data['id'].'/';
 								},
 							),
 						),

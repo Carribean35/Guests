@@ -32,5 +32,13 @@ return array(
 	'Want Post'=>'Желаемая должность',
 	'Want Schedule'=>'Желаемый график работы',
 	'Calories'=>'Калории',
+	'Address Street'=>'Улица',
+	'Adderss House'=>'Дом',
+	'Smoking'=>'Зал для курящих',
+	'Nosmoking'=>'Зал для не курящих',
+	'Hall'=>'Детская комната',
+	'Wifi'=>'Wi-Fi',
+	'Vip'=>'Vip-зал',
+	'Gallery'=>'Галерея',
 	
 );

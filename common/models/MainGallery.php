@@ -66,6 +66,8 @@ class MainGallery extends CFormModel
 	}
 	
 	public function getImages() {
+		if (!file_exists($this->imagesPath."original/"))
+			return array();
 		$images = scandir($this->imagesPath."original/");
 		$imgs = array();
 		foreach ($images AS &$image) {

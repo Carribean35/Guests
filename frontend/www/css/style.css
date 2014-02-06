@@ -318,6 +318,10 @@ body {
 	height: 346px;
 }
 
+.gallery-ben .ul-container ul li img{
+	width: 655px;
+}
+
 .gallery-ben .paginat {
 	margin:0 auto;
 	position: relative;
@@ -831,6 +835,181 @@ div.h2 {
     margin-bottom: 20px;
 }
 
+
+
+.about-block .h1{
+	margin-left: 270px;
+	margin-right: 25px;
+	line-height: 26px;
+}
+
+
+.about-block .about-text-container {
+	padding-top: 120px;
+	padding-bottom: 1px;
+	background: #ffffff;
+}
+
+.about-block .about-text-container .text{
+	margin: 20px 25px 20px 270px;
+	font-size: 14px;
+}
+
+.about-block .about-list {
+	position: relative; 
+	z-index: 5;
+}
+
+.about-block .about-list .about-item {
+	padding: 10px 0 30px;
+	text-align: center;
+	padding-left: 270px;
+	padding-right: 25px;
+}
+
+.about-block .about-list .about-item .h2{
+	margin-bottom: 0;
+}
+
+.about-block .about-list .about-item .h3{
+	color: #AC1D1D;
+	font-size: 24px;
+	font-style: italic;
+	margin: 0 0 20px 0;
+}
+
+.about-block .about-list .about-item .icons {
+	margin: 10px auto 0;
+}
+
+.about-block .about-list .about-item .icons .icon{
+	float: left;
+	width: 60px;
+	height: 60px;
+	margin: 6px;
+}
+
+.about-block .about-list .about-item .icons .icon-smoking{
+	background: url(../img/filial-icons.png) no-repeat 0 0;
+}
+.about-block .about-list .about-item .icons .icon-nosmoking{
+	background: url(../img/filial-icons.png) no-repeat -62px 0;
+}
+.about-block .about-list .about-item .icons .icon-children{
+	background: url(../img/filial-icons.png) no-repeat -124px 0;
+}
+.about-block .about-list .about-item .icons .icon-wifi{
+	background: url(../img/filial-icons.png) no-repeat -186px 0;
+}
+.about-block .about-list .about-item .icons .icon-vip{
+	background: url(../img/filial-icons.png) no-repeat -247px 0;
+}
+
+.about-block .about-list .about-item .virtual-tour {
+	text-align: center;
+	color: #000000;
+	text-decoration: underline;
+	font-size: 18px;
+}
+
+.about-block .about-list .about-item .virtual-tour .icon-eye{
+	width: 60px;
+	height: 60px;
+	background: url(../img/filial-icons.png) no-repeat -308px 0;
+	margin: 0 auto;
+}
+
+.about-block .about-list .about-item .filial-gallery{
+	width: 665px;
+	height: 220px;
+	position: relative;
+	margin-bottom: 60px;
+}
+
+.about-block .about-list .about-item .filial-gallery.white .corners{
+	position: absolute;
+	width: 7px;
+	height: 6px;
+}
+
+.about-block .about-list .about-item .filial-gallery.white .corners.tl{
+	top: 0;
+	left: 0;
+	background: url(../img/corners-biege.png) no-repeat 0 0;
+}
+
+.about-block .about-list .about-item .filial-gallery.white .corners.tr{
+	top: 0;
+	right: 0;
+	background: url(../img/corners-biege.png) no-repeat -7px 0;
+}
+
+.about-block .about-list .about-item .filial-gallery.white .corners.br{
+	bottom: 0;
+	right: 0;
+	background: url(../img/corners-biege.png) no-repeat -21px 0;
+}
+
+.about-block .about-list .about-item .filial-gallery.white .corners.bl{
+	bottom: 0;
+	left: 0;
+	background: url(../img/corners-biege.png) no-repeat -14px 0;
+}
+
+.about-block .about-list .about-item .filial-gallery.white{
+	background: #ffffff;
+}
+
+.about-block .about-list .about-item .filial-gallery.biege{
+	background: #d5c8a2;
+}
+
+
+.about-block .about-list .about-item .filial-gallery.biege .corners{
+	position: absolute;
+	width: 11px;
+	height: 11px;
+}
+
+.about-block .about-list .about-item .filial-gallery.biege .corners.tl{
+	top: 0;
+	left: 0;
+	background: url(../img/corners-white.png) no-repeat 0 0;
+}
+
+.about-block .about-list .about-item .filial-gallery.biege .corners.tr{
+	top: 0;
+	right: 0;
+	background: url(../img/corners-white.png) no-repeat -11px 0;
+}
+
+.about-block .about-list .about-item .filial-gallery.biege .corners.br{
+	bottom: 0;
+	right: 0;
+	background: url(../img/corners-white.png) no-repeat -33px 0;
+}
+
+.about-block .about-list .about-item .filial-gallery.biege .corners.bl{
+	bottom: 0;
+	left: 0;
+	background: url(../img/corners-white.png) no-repeat -22px 0;
+}
+
+
+.about-block .about-list .about-item.white {
+	background: #ffffff;
+}
+
+.about-block .about-list .about-item.biege {
+	background: url(../img/beige-bg.png) repeat-y -10px 0;
+}
+
+.about-block .about-list .about-item .text{
+	text-align: left;
+	font-size: 14px;
+}
+
+
 .team-block .h2 {
 	margin: 0;
 }
@@ -1165,9 +1344,13 @@ i {
 }
 
 .wrapper .menu-block {
-	padding: 135px 15px 30px 260px;
+	padding: 135px 14px 30px 259px;
 	background: #ffffff;
 	min-height: 1000px;
+}
+
+.wrapper .menu-block.menu-main-block .section-list-container {
+	margin-top: 30px;
 }
 
 .wrapper .menu-block .h1 {
@@ -1194,20 +1377,20 @@ i {
 
 .wrapper .menu-block .menu-list .menu-item .img-container .corner{
 	position: absolute;
-	width: 13px;
-	height: 13px;
+	width: 11px;
+	height: 11px;
 }
 
 .wrapper .menu-block .menu-list .menu-item .img-container .corner.tl{
 	top: 0;
 	left: 0;
-	background: url(../img/history-corners.png) no-repeat -3px -3px;
+	background: url(../img/corners-white.png) no-repeat 0 0;
 }
 
 .wrapper .menu-block .menu-list .menu-item .img-container .corner.tr{
 	top: 0;
-	right: 0;
-	background: url(../img/history-corners.png) no-repeat -10px -3px;
+	right: 1px;
+	background: url(../img/corners-white.png) no-repeat -11px 0;
 }
 
 .wrapper .menu-block .menu-list .menu-item .content-container {

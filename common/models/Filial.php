@@ -1,27 +1,29 @@
 <?php
 
 /**
- * This is the model class for table "admins".
+ * This is the model class for table "filial".
  *
- * The followings are the available columns in table 'admins':
+ * The followings are the available columns in table 'filial':
  * @property integer $id
- * @property string $email
- * @property string $password
+ * @property string $addressStreet
+ * @property string $addressHouse
+ * @property string $text
+ * @property integer $smoking
+ * @property integer $nosmoking
+ * @property integer $hall
+ * @property integer $wifi
+ * @property integer $vip
+ * @property string $phone
+ * @property integer $visible
  */
-class Admins extends EActiveRecord
+class Filial extends EActiveRecord
 {
-	public $confirmPassword;
-	
-	public function getSoult($password)
-	{
-		return md5($password.md5($password));
-	}
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'admins';
+		return 'filial';
 	}
 
 	/**
@@ -32,14 +34,14 @@ class Admins extends EActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('email', 'required'),
-			array('email', 'length', 'max'=>100),
-			array('email', 'unique', 'className' => 'Admins', 'attributeName' => 'email', 'caseSensitive' => true),
-			array('confirmPassword', 'compare', 'compareAttribute'=>'password', 'message' => Yii::t('main','Confirm Password Validate Error'),),
-			array('password', 'compare', 'compareAttribute'=>'confirmPassword', 'message' => Yii::t('main','Confirm Password Validate Error'),),
+			array('addressStreet, addressHouse, phone', 'required'),
+			array('smoking, nosmoking, hall, wifi, vip, visible', 'numerical', 'integerOnly'=>true),
+			array('addressStreet, phone', 'length', 'max'=>32),
+			array('addressHouse', 'length', 'max'=>16),
+			array('smoking, nosmoking, hall, wifi, vip, phone, text, visible', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, email, password', 'safe', 'on'=>'search'),
+			array('id, addressStreet, addressHouse, text, smoking, nosmoking, hall, wifi, vip, phone, visible', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,10 +62,17 @@ class Admins extends EActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => Yii::t('main','ID'),
-			'email' => Yii::t('main','Email'),
-			'password' => Yii::t('main','Password'),
-			'confirmPassword' => Yii::t('main','Confirm Password'),
+			'id' => Yii::t('main', 'ID'),
+			'addressStreet' => Yii::t('main', 'Address Street'),
+			'addressHouse' => Yii::t('main', 'Adderss House'),
+			'text' => Yii::t('main', 'Text'),
+			'smoking' => Yii::t('main', 'Smoking'),
+			'nosmoking' => Yii::t('main', 'Nosmoking'),
+			'hall' => Yii::t('main', 'Hall'),
+			'wifi' => Yii::t('main', 'Wifi'),
+			'vip' => Yii::t('main', 'Vip'),
+			'phone' => Yii::t('main', 'Phone'),
+			'visible' => Yii::t('main', 'Visible'),
 		);
 	}
 
@@ -86,8 +95,16 @@ class Admins extends EActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('email',$this->email,true);
-		$criteria->compare('password',$this->password,true);
+		$criteria->compare('addressStreet',$this->addressStreet,true);
+		$criteria->compare('addressHouse',$this->addressHouse,true);
+		$criteria->compare('text',$this->text,true);
+		$criteria->compare('smoking',$this->smoking);
+		$criteria->compare('nosmoking',$this->nosmoking);
+		$criteria->compare('hall',$this->hall);
+		$criteria->compare('wifi',$this->wifi);
+		$criteria->compare('vip',$this->vip);
+		$criteria->compare('phone',$this->phone,true);
+		$criteria->compare('visible',$this->visible);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -98,7 +115,7 @@ class Admins extends EActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Admins the static model class
+	 * @return Filial the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

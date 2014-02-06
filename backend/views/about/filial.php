@@ -1,18 +1,19 @@
 <?php
-/* @var $this ActionController */
-/* @var $model Action*/
+/* @var $this AboutController */
+/* @var $model Filial*/
 
-$this->title_h3='Акции';
+$this->title_h3='Филиалы';
 
 $this->breadcrumbs=array(
-	'Акции'
+	'О ресторане',
+	'Филиалы'
 );
 
 $this->breadcrumbs_button = '<li class="pull-right no-text-shadow">
-								<a class="btn blue dash-btn" href="'.$this->createUrl('action/item').'"><i class="icon-plus"></i>Добавить запись</a>
+								<a class="btn blue dash-btn" href="'.$this->createUrl('about/filialItem').'"><i class="icon-plus"></i>Добавить запись</a>
 							</li>';
 
-$this->menuActiveItems[BController::ACTION_MENU_ITEM] = 1;
+$this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM] = 1;
 ?>
 <div>
 	
@@ -31,8 +32,15 @@ $this->menuActiveItems[BController::ACTION_MENU_ITEM] = 1;
 						'name'=>'id',
 					),
 					array(
-						'header'=>Yii::t('main','Name'),
-						'name'=>'name',
+						'header'=>Yii::t('main','Address'),
+						'name'=>'addressStreet',
+						'value'=>function($data) {
+							return $data['addressStreet'].", ".$data['addressHouse'];						
+						}
+					),
+					array(
+						'header'=>Yii::t('main','Phone'),
+						'name'=>'phone',
 					),
 					array(
 						'header'=>Yii::t('main','Visible'),
@@ -54,7 +62,7 @@ $this->menuActiveItems[BController::ACTION_MENU_ITEM] = 1;
 								'imageUrl'=>false,
 								'options'=>array('class'=>'btn mini blue-stripe'),
 								'url'=>function($data) {
-									return '/action/item/'.$data['id'].'/';
+									return '/about/filialItem/'.$data['id'].'/';
 								},
 							),
 							'add'=>array(
@@ -63,11 +71,19 @@ $this->menuActiveItems[BController::ACTION_MENU_ITEM] = 1;
 								'options'=>array('class'=>'btn mini red-stripe'),
 								'click'=>'confirmDelete',
 								'url'=>function($data) {
-									return '/action/delete/'.$data['id'].'/';
+									return '/about/filialDelete/'.$data['id'].'/';
 								},
 							),
+							'gallery'=>array(
+									'label'=>Yii::t('main','Gallery'),
+									'imageUrl'=>false,
+									'options'=>array('class'=>'btn mini green-stripe'),
+									'url'=>function($data) {
+										return '/about/filialGallery/'.$data['id'].'/';
+									},
+							),
 						),
-						'template'=>'{view} {add}',
+						'template'=>'{view} {add} {gallery}',
 					),
 				),
 			)); ?>

@@ -18,7 +18,7 @@
 				<?php endif;?>
 
 			<?php if ($val['level'] == 0) :?>
-				<?php $column_height += 20;?>
+				<?php $column_height += 45;?>
 				<?php if (!$first):?>
 					</div>
 				<?php endif;?>
@@ -29,7 +29,7 @@
 				<div><a href="/menu/<?php echo $val['id']?>/"><?php echo $val['name']?></a></div>
 			<?php endif;?>
 			<?php 	$first = false;
-					$column_height += 23;
+					$column_height += 20;
 			?>
 		<?php endforeach;?>
 			</div>

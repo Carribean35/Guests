@@ -54,7 +54,7 @@ $this->menuActiveItems[BController::PAGES_MENU_ITEM] = 1;
 								'imageUrl'=>false,
 								'options'=>array('class'=>'btn mini blue-stripe'),
 								'url'=>function($data) {
-									return $this->createUrl('pages/item', array('id'=>$data['id']));
+									return '/pages/item/'.$data['id'].'/';
 								},
 							),
 							'add'=>array(
@@ -63,7 +63,7 @@ $this->menuActiveItems[BController::PAGES_MENU_ITEM] = 1;
 								'options'=>array('class'=>'btn mini red-stripe'),
 								'click'=>'confirmDelete',
 								'url'=>function($data) {
-									return $this->createUrl('pages/delete', array('id'=>$data['id']));
+									return '/pages/delete/'.$data['id'].'/';
 								},
 							),
 						),

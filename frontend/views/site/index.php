@@ -13,17 +13,17 @@
 		<div class="gallery-ben">
 			<div class="ul-container">
 				<ul>
-					<?php foreach($mainGallery AS $key => $val) :?>
-					<li><img src="<?php echo $val->imagesUrl."655x346/".$val?>"></li>
+					<?php foreach($mainGallery->images AS $key => $val) :?>
+					<li><img src="<?php echo $mainGallery->ImagesUrl."655x346/".$val?>"></li>
 					<?php endforeach;?>
 				</ul>
 			</div>
-			<div class="paginat" style="width:60px">
+			<div class="paginat" style="width:<?php echo count($mainGallery->images) * 15?>px">
 				<ul>
-					<li></li>
-					<li class="active"></li>
-					<li></li>
-					<li></li>
+					<?php foreach($mainGallery->images AS $key => $val) :?>
+						<li <?php if ($key == 0) :?>class="active"<?php endif;?> rel="<?php echo $key?>"></li>
+					<?php endforeach;?>
+					
 				</ul>
 			</div>
 			

@@ -14,6 +14,8 @@ class BController extends EController
 	const TEAM_MENU_WORKER = "team_worker";
 	const TEAM_MENU_JOB = "team_job";
 	const TEAM_MENU_RESUME = "team_resume";
+	const ABOUT_RESTAURANT_MENU_ITEM = "about";
+	const ABOUT_FILIAL_MENU_ITEM = "about_filial";
 	
 	public $breadcrumbs;
 	public $breadcrumbs_button;
