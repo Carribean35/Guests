@@ -14,14 +14,12 @@ $this->breadcrumbs=array(
 
 $this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM] = 1;
 
-Yii::app()->assetManager->publish(
+$fancyboxPath = Yii::app()->assetManager->publish(
 	Yii::getPathOfAlias('webroot').'/plugins/fancybox/source/'
 );
 
 Yii::app()->clientScript->registerScriptFile(
-	Yii::app()->assetManager->publish(
-		Yii::getPathOfAlias('webroot').'/plugins/fancybox/source/jquery.fancybox.pack.js'
-	),
+	$fancyboxPath.'/jquery.fancybox.pack.js',
 	CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
@@ -38,9 +36,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 
 Yii::app()->clientScript->registerCssFile(
-	Yii::app()->assetManager->publish(
-		Yii::getPathOfAlias('webroot').'/plugins/fancybox/source/jquery.fancybox.css'
-	),
+	$fancyboxPath.'/jquery.fancybox.css',
 	'',
 	CClientScript::POS_END
 );

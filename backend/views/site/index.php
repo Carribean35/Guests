@@ -45,6 +45,12 @@ Yii::app()->clientScript->registerCssFile(
 	'',
 	CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+	Yii::app()->assetManager->publish(
+		Yii::getPathOfAlias('webroot').'/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js'
+	),
+	CClientScript::POS_END
+);
 
 ?>
 
@@ -56,9 +62,7 @@ Yii::app()->clientScript->registerCssFile(
 		</div>
 	</div>
 	<div class="portlet-body">
-		
-
-		<?php echo CHtml::form('','post',array('enctype'=>'multipart/form-data')); ?>
+			<?php echo CHtml::form('','post',array('enctype'=>'multipart/form-data')); ?>
 	
 
 			<div data-provides="fileupload" class="fileupload fileupload-new pull-left">
@@ -91,9 +95,85 @@ Yii::app()->clientScript->registerCssFile(
 			</div>
 			<?php }?>
 		</div>
-		
-		
 	
+	</div>
+</div>
+
+<div class="portlet box green main-gallery">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-picture"></i>Настройки</div>
+		<div class="tools">
+			<a href="javascript:;" class="collapse"></a>
+		</div>
+	</div>
+	<div class="portlet-body">
+		<?php $form=$this->beginWidget('CActiveForm', array(
+			'id'=>$site->formId,
+			'enableAjaxValidation'=>true,
+			'clientOptions'=>array(
+				'validateOnSubmit'=>true,
+				'validateOnChange'=>false,
+				'errorCssClass'=>'error',
+				'afterValidate'=>'js:contentAfterAjaxValidateNoReload',
+			),
+			'htmlOptions'=>array('class'=>'form-horizontal', 'rel' => $this->createUrl('/')),
+	
+		)); ?>
+	
+			<div class="control-group">
+				<?php echo $form->label($site,'email',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'email',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'email'); ?></span>
+				</div>
+			</div>
+			<div class="control-group">
+				<?php echo $form->label($site,'phone',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'phone',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'phone'); ?></span>
+				</div>
+			</div>
+			<div class="control-group">
+				<?php echo $form->label($site,'vkLink',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'vkLink',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'vkLink'); ?></span>
+				</div>
+			</div>
+			<div class="control-group">
+				<?php echo $form->label($site,'facebookLink',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'facebookLink',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'facebookLink'); ?></span>
+				</div>
+			</div>
+			<div class="control-group">
+				<?php echo $form->label($site,'instakLink',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'instakLink',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'instakLink'); ?></span>
+				</div>
+			</div>
+			<div class="control-group">
+				<?php echo $form->label($site,'foursquareLink',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'foursquareLink',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'foursquareLink'); ?></span>
+				</div>
+			</div>
+			<div class="control-group">
+				<?php echo $form->label($site,'twitterLink',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'twitterLink',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'twitterLink'); ?></span>
+				</div>
+			</div>
+			<div class="form-actions large">
+				<?php echo CHtml::htmlButton('<i class="icon-ok"></i> Сохранить', array('class' => 'btn blue', 'type' => 'submit')); ?>
+				<?php echo CHtml::htmlButton('Отменить', array('class' => 'btn', 'type' => 'reset')); ?>
+			</div>
+		<?php $this->endWidget(); ?>
 	</div>
 </div>
 
@@ -115,5 +195,7 @@ Yii::app()->clientScript->registerCssFile(
 				});
 			}
 		});
+
+		$("#Site_phone").inputmask("mask", {"mask": "+7 (999) 999-99-99"});
 	})
 </script>

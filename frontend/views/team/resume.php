@@ -1,13 +1,6 @@
 <?php 
 $this->menuActiveItems[FController::TEAM_MENU_ITEM] = 1;
 
-Yii::app()->clientScript->registerScriptFile(
-	Yii::app()->assetManager->publish(
-		Yii::getPathOfAlias('webroot').'/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js'
-	),
-	CClientScript::POS_END
-);
-
 ?>
 <div class="left-column-block">
 	<div class="left-menu">
@@ -82,7 +75,7 @@ Yii::app()->clientScript->registerScriptFile(
 		<?php echo $form->textField($model,'wantPost',array('class'=>'input-text input-208 fleft', 'placeholder' => 'ЖЕЛАЕМАЯ ДОЛЖНОСТЬ')); ?>
 		<?php echo $form->textField($model,'wantSchedule',array('class'=>'input-text input-437 fright', 'placeholder' => 'ЖЕЛАЕМЫЙ ГРАФИК РАБОТЫ')); ?>
 		<div class="confirm">
-			<input type="checkbox" id="confirm" name="Resume[confirm]">
+			<input type="checkbox" id="confirm" name="Resume[confirm]" checked>
 			<label for="confirm" class="checkbox-custom">Я согласен с тем, что мои персональные данные будут использоваться компанией "Рестораны на каждый день "ГОСТИ" для решения вопроса о моем трудоустройстве.</label>
 		</div>
 		<?php echo CHtml::htmlButton('', array('class' => 'submit-button', 'type' => 'submit')); ?>

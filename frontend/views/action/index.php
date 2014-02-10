@@ -23,7 +23,7 @@ $this->menuActiveItems[FController::ACTION_MENU_ITEM] = 1;
 			<div class="h2"><span><?php echo $val['name']?></span></div>
 			<div class="text"><?php echo $val['text']?></div>
 		</div>
-		<div class="<?php echo ($key % 2 == 0) ? "wave-biege white" : "wave-white";?>"></div>
+		<div class="<?php echo ($key % 2 == 0) ? "wave-biege ".(($key == count($actions) - 1) ? '' : 'white') : "wave-white";?>"></div>
 		<?php endforeach;?>
 	</div>
 </div>

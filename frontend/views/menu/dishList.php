@@ -19,13 +19,28 @@ $this->menuActiveItems[FController::MENU_MENU_ITEM] = 1;
 				</a>
 			</div>
 			<div class="content-container">
+				<input type="hidden" value="<?php echo $val['id']?>" class="dishId">
 				<div class="name"><?php echo $val['name']?></div>
-				<div class="price"><?php echo $val['price']?> Р</div>
-				<div class="weight"><?php echo $val['weight']?> гр.</div>
+				<div class="price"><span><?php echo $val['price']?></span> Р</div>
+				<div class="weight fleft"><?php echo $val['weight']?> гр.</div>
+				<div class="call fright"><?php echo $val['calories']?> калл.</div>
+				<div class="clear"></div>
 				<div class="text"><?php echo $val['text']?></div>
 				<div class="line"></div>
 				<input type="text" class="dish-cart-count" value="1">
-				<div class="add-to-cart-button"></div>
+				<div class="add-to-cart-button" data-bind="click: function(data, bind) {
+					var self = $(bind.currentTarget);
+					var count = self.parent().find('.dish-cart-count').val();
+					var name = self.parent().find('.name').html();
+					var text = self.parent().find('.text').html();
+					
+					addGoods(<?php echo $val['id']?>,
+							name,
+							'<?php echo $val['price']?>',
+							text,
+							count
+					);
+				}"></div>
 			</div>
 		</div>
 		<?php endforeach;?>
@@ -40,19 +55,35 @@ $this->menuActiveItems[FController::MENU_MENU_ITEM] = 1;
 	<div class="modal-content">
 	  <div class="modal-body">
 		<div class="img-container">
-			<img src="img/dish-big-1.jpg">
+			<img src="">
 		</div>
 		<div class="dish-info-container">
-			<div class="name">Роллы</div>
+			<div class="name"></div>
 			<div class="info">
-				<div class="text">Сочный салат Айсберг с обжареным филе цыпленка, соусом Цезарь, хрустящими гренками и сыром Пармезан</div>
+				<input type="hidden" value="" class="dishId">
+				<div class="text"></div>
 				<div class="line"></div>
-				<div class="weight">50 гр.</div>
-				<div class="price">120 Р</div>
+				<div class="weight fleft"></div>
+				<div class="price fleft"></div>
+				<div class="call fright"></div>
 				<div class="clear"></div>
 				<div class="line"></div>
 				<input type="text" class="dish-cart-count" value="1">
-				<div class="add-to-cart-button"></div>
+				<div class="add-to-cart-button"  data-bind="click: function(data, bind) {
+					var self = $(bind.currentTarget);
+					var count = self.parent().find('.dish-cart-count').val();
+					var name = self.parent().parent().find('.name').html();
+					var text = self.parent().find('.text').html();
+					var price = self.parent().find('.price span').html();
+					var id = self.parent().find('.dishId').val();
+					
+					addGoods(id,
+							name,
+							price,
+							text,
+							count
+					);
+				}"></div>
 			</div>
 		</div>
 		<div class="clear"></div>

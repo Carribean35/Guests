@@ -137,14 +137,18 @@ $(document).ready(function() {
 		var name = item.find(".name").html();
 		var price = item.find(".price").html();
 		var weight = item.find(".weight").html();
+		var call = item.find(".call").html();
 		var text = item.find(".text").html();
 		var img = "/data/menu/dish/440x452/" + $(this).attr("rel") + ".jpg";
+		var id = item.find(".dishId").val();
 		
 		$('#dishModal').find(".name").html(name);
 		$('#dishModal').find(".price").html(price);
 		$('#dishModal').find(".weight").html(weight);
+		$('#dishModal').find(".call").html(call);
 		$('#dishModal').find(".text").html(text);
 		$('#dishModal').find(".img-container img").attr("src", img);
+		$('#dishModal').find(".dishId").val(id);
 		
 		$('#dishModal').modal('show');
 		
@@ -155,6 +159,120 @@ $(document).ready(function() {
 	$(".gallery-team").galleryTeam();
 	$(".gallery-ben").galleryBen();
 	
+	
+	
+	$('#show-order-form').on("click", function() {
+		if ($.cookie('cart') !== undefined) {
+			var dishes = JSON.parse($.cookie('cart'));
+			
+			if(dishes.length > 0)
+				$('#orderModal').modal('show');
+			else 
+				alert("Корзина пуста!");
+		} else 
+			alert("Корзина пуста!");
+	})
+	
+	var orderModelStep1 = function() {
+		$('#order-modal-header-step-3').removeClass("black").addClass("white");
+		$('#order-modal-header-step-2').removeClass("black").addClass("white");
+		$('#order-modal-line-2').removeClass("black").addClass("white");
+		$('#order-modal-content-step1').show();
+		$('#order-modal-content-step2').hide();
+		$('#order-modal-content-step3').hide();
+	}
+	
+	var orderModelStep2 = function() {
+		$('#order-modal-header-step-3').removeClass("black").addClass("white");
+		$('#order-modal-header-step-2').removeClass("white").addClass("black");
+		$('#order-modal-line-2').removeClass("white").addClass("black");
+		$('#order-modal-content-step1').hide();
+		$('#order-modal-content-step2').show();
+		$('#order-modal-content-step3').hide();		
+	}
+	
+	var orderModelStep3 = function() {
+		$('#order-modal-header-step-3').removeClass("white").addClass("black");
+		$('#order-modal-content-step1').hide();
+		$('#order-modal-content-step2').hide();
+		$('#order-modal-content-step3').show();
+	}
+	
+	$('.order-modal-go-to-step-1').on("click", function() {
+		orderModelStep1();
+	})
+	
+	$('.order-modal-go-to-step-2').on("click", function() {
+		orderModelStep2();
+	})
+	
+	$('.order-modal-go-to-step-3').on("click", function() {
+		if (submitOrder())
+			orderModelStep3();
+	})
+	
+	$(".dish-cart-count").inputmask({"mask": "99", "placeholder" : " "});
+	
+	$("#orderPhone").inputmask({"mask": "+7 (999) 999-99-99"});
+	$("#orderPorch, #orderFloor, #orderPersonCount").inputmask({"mask": "99", "placeholder" : " "});
+	$("#orderApartment").inputmask({"mask": "999", "placeholder" : " "});
+	
+	$("#orderOddMOney").inputmask({"mask": "99999", "placeholder" : " "});
+	$("#orderDate").inputmask({"mask": "d.m.y"});
+	$("#orderHour").inputmask({"mask": "h", "placeholder" : " "});
+	$("#orderMin").inputmask({"mask": "s", "placeholder" : " "});
+
+	var submitOrder = function() {
+		
+		var form = $("#order-modal-content-step2 form");
+		
+		var serializeData = form.serializeArray();
+		
+		var data = [];
+		for(var i = 0; i < serializeData.length; i++) {
+			data[serializeData[i].name] = serializeData[i].value;
+		}
+		
+		if(!$("#orderPhone").inputmask("isComplete")){
+			alert("Необходимо указать номер телефона!");
+			return false;
+	    }
+		
+		if (data['Order[street]'] === "") {
+			alert("Необходимо указать улицу!");
+			return false;
+		}
+		
+		if (data['Order[house]'] === "") {
+			alert("Необходимо указать дом!");
+			return false;
+		}
+		
+		if(data['Order[apartment]'] === ""){
+			alert("Необходимо указать квартиру!");
+			return false;
+		}
+		
+		var dishes = $.cookie('cart');
+		
+		serializeData.push({name : 'Order[dishes]', value : dishes});
+		
+		$.ajax({
+			url : '/menu/submitOrder/',
+			dataType : 'json',
+			type : 'POST',
+			cache : false,
+			data : serializeData,
+			success : function(response) {
+				
+			}
+		})
+		
+		$.removeCookie('cart', { path: '/' });
+		form[0].reset();
+		
+		return true;
+	}
 	
 	
 })

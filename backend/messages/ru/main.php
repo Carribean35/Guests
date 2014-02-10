@@ -40,5 +40,9 @@ return array(
 	'Wifi'=>'Wi-Fi',
 	'Vip'=>'Vip-зал',
 	'Gallery'=>'Галерея',
-	
+	'vkLink'=>'Ссылка Vkontakte',
+	'facebookLink'=>'Ссылка Facebook',
+	'instakLink'=>'Ссылка Instagramm',
+	'foursquareLink'=>'Ссылка Foursquare',
+	'twitterLink'=>'Ссылка Twitter'
 );

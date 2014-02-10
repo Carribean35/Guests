@@ -33,5 +33,18 @@ return array(
 		// php configuration
 		'php.defaultCharset' => 'utf-8',
 		'php.timezone'       => 'UTC',
+		'smtp' => array(
+				"host" => "smtp.yandex.ru", //smtp сервер
+				"debug" => 0, //отображение информации дебаггера (0 - нет вообще)
+				"auth" => true, //сервер требует авторизации
+				"port" => 25, //порт (по-умолчанию - 25)
+				"username" => "carribean", //имя пользователя на сервере
+				"password" => "qjucgjrjty", //пароль
+				"addreply" => "carribean@yandex.ru", //ваш е-mail
+				"replyto" => "", //e-mail ответа
+				"fromname" => "guests.ru", //имя
+				"from" => "carribean@yandex.ru", //от кого
+				"charset" => "utf-8", //от кого
+		)
 	)
 );

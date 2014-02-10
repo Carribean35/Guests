@@ -13,6 +13,26 @@ class SiteController extends RController
 {
 	public function actionIndex()
 	{
+		$site = new Site();
+		
+		if(isset($_POST['Site'])) {
+			$site->attributes=$_POST['Site'];
+			
+			$this->performAjaxValidation($site);
+			if($site->save()) {
+				$err = false;
+			} else {
+				$err = true;
+			}
+			echo CJSON::encode(
+				array(
+						'error'=>$err,
+				)
+			);
+			Yii::app()->end();
+			
+		}
+		
 		$mainGallery = new MainGallery();
 		
 		if(!empty($_FILES['MainGallery']['name']['image'])) {
@@ -20,7 +40,9 @@ class SiteController extends RController
 			$this->redirect("/");
 		}
 		
-		$this->render('index', array('mainGallery' => $mainGallery));
+		
+		
+		$this->render('index', array('mainGallery' => $mainGallery, 'site' => $site));
 	}
 	
 	public function actionDeleteMainGallery() {

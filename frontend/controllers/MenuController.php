@@ -6,6 +6,7 @@
  */
 class MenuController extends FController
 {
+	
 	public function actionIndex($id = false)
 	{
 		$check = $this->check();
@@ -17,9 +18,19 @@ class MenuController extends FController
 			$section = $this->loadModel('Menu', $id);
 			
 			$sectionLeftMenu = $this->sectionLeftMenu($section);
+			$sections = array($section->id);
+			if ($section->level == 0) {
+				$connection = Yii::app()->db;
+				$sql = "SELECT GROUP_CONCAT(id SEPARATOR ',') as ids FROM menu WHERE pid = ".$section->id;
+				$command = $connection->createCommand($sql);
+				$rows = $command->queryRow();
+				if (!empty($rows['ids']))
+					$sections[] = $rows['ids'];
+			}
+				
 			
 			$criteria=new CDbCriteria;
-			$criteria->condition = "visible = 1 AND pid = ".$section->id;
+			$criteria->condition = "visible = 1 AND pid IN (".implode(",", $sections).")";
 			$dishs = Dish::model()->findAll($criteria);
 			
 			$this->render('dishList', array('sectionLeftMenu' => $sectionLeftMenu, 'section' => $section, 'dishs' => $dishs, 'check' => $check));
@@ -64,5 +75,28 @@ class MenuController extends FController
 	
 	public function check() {
 		return $this->renderPartial('check', array(), true);
+	}
+	
+	public function actionSubmitOrder() {
+		
+		if (!empty($_POST['Order'])) {
+			$order = $_POST['Order'];
+			$order['dishes'] = json_decode($order['dishes']);
+
+			$mailBlank = $this->renderPartial("mailBlank", array("order" => $order), true);
+			
+			SendMail::send('carribean@yandex.ru', "Заявка", $mailBlank);
+
+			$err = false;
+		} else {
+			$err = true;
+		}
+		
+		echo CJSON::encode(
+			array(
+				'error'=>$err,
+			)
+		);
+		Yii::app()->end();
 	}
 }

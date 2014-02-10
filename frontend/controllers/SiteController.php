@@ -16,8 +16,10 @@ class SiteController extends FController
 		
 		list($menuController) = Yii::app()->createController('menu');
 		$menuMainBlock = $menuController->menuMainBlock();
+		
+		$check = $menuController->check();
 
-		$this->render('index', array('newsMainBlock' => $newsMainBlock, 'menuMainBlock' => $menuMainBlock, 'mainGallery' => $mainGallery));
+		$this->render('index', array('newsMainBlock' => $newsMainBlock, 'menuMainBlock' => $menuMainBlock, 'mainGallery' => $mainGallery, 'check' => $check));
 	}
 
 	/**
