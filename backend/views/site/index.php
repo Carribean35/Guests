@@ -121,10 +121,17 @@ Yii::app()->clientScript->registerScriptFile(
 		)); ?>
 	
 			<div class="control-group">
-				<?php echo $form->label($site,'email',array('class'=>'control-label')); ?>
+				<?php echo $form->label($site,'emailAdmin',array('class'=>'control-label')); ?>
 				<div class="controls">
-					<?php echo $form->textField($site,'email',array('class'=>'m-wrap medium')); ?>
-					<span class="help-inline"><?php echo $form->error($site,'email'); ?></span>
+					<?php echo $form->textField($site,'emailAdmin',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'emailAdmin'); ?></span>
+				</div>
+			</div>
+			<div class="control-group">
+				<?php echo $form->label($site,'emailOrder',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'emailOrder',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'emailOrder'); ?></span>
 				</div>
 			</div>
 			<div class="control-group">
@@ -196,6 +203,6 @@ Yii::app()->clientScript->registerScriptFile(
 			}
 		});
 
-		$("#Site_phone").inputmask("mask", {"mask": "+7 (999) 999-99-99"});
+		$("#Site_phone").inputmask("mask", {"mask": "999-99-99"});
 	})
 </script>

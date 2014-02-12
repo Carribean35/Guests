@@ -161,6 +161,8 @@ $(document).ready(function() {
 	
 	
 	
+	/* фома заказа*/
+	
 	$('#show-order-form').on("click", function() {
 		if ($.cookie('cart') !== undefined) {
 			var dishes = JSON.parse($.cookie('cart'));
@@ -274,6 +276,66 @@ $(document).ready(function() {
 		return true;
 	}
 	
+	/* фома заказа end*/
+	
+	$(".call-me-show").on("click", function() {
+		$('#callMeModal').modal('show');
+	})
+	
+	$("#call-me-phone, #review-phone").inputmask({"mask": "+7 (999) 999-99-99"});
+	
+	$("#call-me-submit").on("click", function() {
+		if(!$("#call-me-phone").inputmask("isComplete")){
+			return false;
+	    }
+		var self = $(this)
+		
+		$.ajax({
+			url: '/site/callMeSubmit/',
+			dataType: 'json',
+			type: 'POST',
+			data: {'name' : $("#call-me-name").val(), 'phone' : $("#call-me-phone").val(), 'comment' : $("#call-me-comment").val()},
+			success: function(response) {
+				$('#callMeModal').modal('hide');
+				self.parent()[0].reset();
+			}
+			
+		})
+	})
+	
+	$("#review-email").inputmask('Regex', { regex: "[a-zA-Z0-9._%-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}" });
+	
+	$("#review-submit").on("click", function() {
+		
+		var email = $("#review-email").val();
+		var name = $("#review-name").val();
+		var phone = $("#review-phone").val();
+		var text = $("#review-text").val();
+		var type = $("#review-type").val();
+		regex = new RegExp('[a-zA-Z0-9._%-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}');
+
+		if(!regex.test(email)){
+			return false;
+	    }
+		var self = $(this)
+
+		$.ajax({
+			url: '/review/submit/',
+			dataType: 'json',
+			type: 'POST',
+			data: {'name' : name, 
+				'phone' : phone,
+				'email' : email,
+				'text' : text,
+				'type' : type,
+				},
+			success: function(response) {
+				self.parent()[0].reset();
+				alert('Ваш отзыв отправлен!');
+			}
+			
+		})
+	})
 	
 })
 

@@ -1,12 +1,16 @@
 <div class="banner-block">
 	<div class="left">
+		<div class="delivery-icon"></div>
 		<div class="delivery">ДОСТАВКА</div>
 		<div class="phone"><?php echo $this->site->phone?></div>
 		<div class="more-info">
-			<a href="#">Узнать подробнее>></a>
+			<a href="/delivery/">Узнать подробнее>></a>
 		</div>
 		<div class="call-me">
-			Заказать звонок
+			<div class="call-me-icon call-me-show"></div>
+			<a href="javascript: void(0);" class="call-me-show">
+				Заказать звонок
+			</a>
 		</div>
 	</div>
 	<div class="right">
@@ -43,31 +47,7 @@
 		
 		<?php echo $check;?>
 		
-		<div class="recomended">
-			<div class="recomended-headline">РЕКОМЕНДУЕМ</div>
-			<div class="recomended-list">
-				<div class="border"></div>
-				<div class="recomended-list-item">
-					<div class="name">Спайси с тунцом</div>
-					<div class="weight">45 гр.</div>
-					<div class="price">59 руб</div>
-					<img src="img/recomended-img-1.jpg" class="img">
-				</div>
-				<div class="recomended-list-item">
-					<div class="name">Спайси с тунцом</div>
-					<div class="weight">45 гр.</div>
-					<div class="price">59 руб</div>
-					<img src="img/recomended-img-1.jpg" class="img">
-				</div>
-				<div class="recomended-list-item">
-					<div class="name">Спайси с тунцом</div>
-					<div class="weight">45 гр.</div>
-					<div class="price">59 руб</div>
-					<img src="img/recomended-img-1.jpg" class="img">
-				</div>
-				<div class="border"></div>
-			</div>
-		</div>
+		<?php echo $recommended;?>
 	</div>
 	<div class="right">
 		<?php echo $menuMainBlock; ?>

@@ -83,9 +83,11 @@ class MenuController extends FController
 			$order = $_POST['Order'];
 			$order['dishes'] = json_decode($order['dishes']);
 
-			$mailBlank = $this->renderPartial("mailBlank", array("order" => $order), true);
+			$mailBlank = $this->renderPartial("//mailBlank/order", array("order" => $order), true);
 			
-			SendMail::send('carribean@yandex.ru', "Заявка", $mailBlank);
+			$site = new Site();
+			
+			SendMail::send($site->emailOrder, "Заявка", $mailBlank);
 
 			$err = false;
 		} else {
@@ -98,5 +100,17 @@ class MenuController extends FController
 			)
 		);
 		Yii::app()->end();
+	}
+	
+	public function recommendedBlock() {
+		$criteria=new CDbCriteria;
+		$criteria->order = "RAND()";
+		$criteria->condition = "visible = 1 AND recommended = 1";
+		$criteria->limit = 3;
+		$dish = Dish::model()->findAll($criteria);
+	
+		if ($dish)
+			return $this->renderPartial("recommendedBlock", array('dish' => $dish), true);
+		return '';
 	}
 }

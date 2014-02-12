@@ -93,7 +93,7 @@ $this->menuActiveItems[FController::DELIVERY_MENU_ITEM] = 1;
 			<div class="clear"></div>
 		</div>
 		<div class="map-container">
-			<img src="/img/map.png">
+			<script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=WpitxIMSGmXvKi2F50A_vuyDICHxKHoF&width=902&height=546"></script>
 		</div>
 	</div>
 	<div class="wave-biege"></div>

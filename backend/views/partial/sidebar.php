@@ -58,6 +58,15 @@
 			</a>
 		</li>
 		<?php endif;?>
+		<?php if(Yii::app()->user->checkAccess('Review.*')): ?>
+		<li class="start <?php if (!empty($this->menuActiveItems[BController::REVIEW_MENU_ITEM])) { echo 'active'; } ?>">
+			<a href="<?php echo $this->createUrl('review/index') ?>">
+				<i class="icon-coffee"></i>
+				<span class="title">Отзывы</span>
+				<span class="selected"></span>
+			</a>
+		</li>
+		<?php endif;?>
 		<?php if(Yii::app()->user->checkAccess('Team.*')): ?>
 		<li class="start <?php if (!empty($this->menuActiveItems[BController::TEAM_MENU_GALLERY])
 											|| !empty($this->menuActiveItems[BController::TEAM_MENU_WORKER])

@@ -44,5 +44,9 @@ return array(
 	'facebookLink'=>'Ссылка Facebook',
 	'instakLink'=>'Ссылка Instagramm',
 	'foursquareLink'=>'Ссылка Foursquare',
-	'twitterLink'=>'Ссылка Twitter'
+	'twitterLink'=>'Ссылка Twitter',
+	'Email Admin'=>'Email администратора',
+	'Email Order'=>'Email для заказов',
+	'Single Phone'=>'Единый телефон',
+	'Type' => 'Тип',
 );

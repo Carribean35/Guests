@@ -17,11 +17,21 @@
 			<div class="sotsseti-block">
 				<div class="sotsseti-block-headline">Мы в соцсетях:</div>
 				<div class="sotsseti-block-links">
-					<a href="<?php echo $this->site->vkLink?>" target="_blank" class="sotseti-icon vk"></a>
-					<a href="<?php echo $this->site->facebookLink?>" target="_blank" class="sotseti-icon facebook"></a>
-					<a href="<?php echo $this->site->instakLink?>" target="_blank" class="sotseti-icon instagramm"></a>
-					<a href="<?php echo $this->site->foursquareLink?>" target="_blank" class="sotseti-icon foursquare"></a>
-					<a href="<?php echo $this->site->twitterLink?>" target="_blank" class="sotseti-icon twitter"></a>
+					<?php if (!empty($this->site->vkLink)) :?>
+						<a href="<?php echo $this->site->vkLink?>" target="_blank" class="sotseti-icon vk"></a>
+					<?php endif;?>
+					<?php if (!empty($this->site->facebookLink)) :?>
+						<a href="<?php echo $this->site->facebookLink?>" target="_blank" class="sotseti-icon facebook"></a>
+					<?php endif;?>
+					<?php if (!empty($this->site->instakLink)) :?>
+						<a href="<?php echo $this->site->instakLink?>" target="_blank" class="sotseti-icon instagramm"></a>
+					<?php endif;?>
+					<?php if (!empty($this->site->foursquareLink)) :?>
+						<a href="<?php echo $this->site->foursquareLink?>" target="_blank" class="sotseti-icon foursquare"></a>
+					<?php endif;?>
+					<?php if (!empty($this->site->twitterLink)) :?>
+						<a href="<?php echo $this->site->twitterLink?>" target="_blank" class="sotseti-icon twitter"></a>
+					<?php endif;?>
 				</div>
 			</div>
 			<div class="addr-block">
@@ -32,12 +42,14 @@
 				<div class="addr-block-addr">
 					ул. С.Перовской, 42
 				</div>
-				<div class="clear addr-block-addr-phone"><?php echo $this->site->phone?></div>
+				<div class="clear"></div>
+				<div class="addr-block-addr-phone-note">Наш единый номер телефона</div>
+				<div class="addr-block-addr-phone"><?php echo $this->site->phone?></div>
 			</div>
 			<div class="smile-block">
-				<a href="#" class="good smile">Благодарность</a>
-				<a href="#" class="bad smile">Жалоба</a>
-				<a href="#" class="offer smile">Предложение</a>
+				<a href="/review/good/" class="good smile">Довольный гость</a>
+				<a href="/review/bad/" class="bad smile">Разочарованный гость</a>
+				<a href="/review/notice/" class="offer smile">Предложение</a>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -47,6 +59,8 @@
 	</div><!-- .footer -->
 	
 	<?php $this->renderPartial("//menu/orderModal")?>
+	
+	<?php $this->renderPartial("//site/callMeModal")?>
 
 </body>
 </html>

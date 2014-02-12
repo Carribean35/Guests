@@ -3,7 +3,8 @@
 class Site extends CFormModel
 {
 
-	public $email;
+	public $emailOrder;
+	public $emailAdmin;
 	public $phone;
 	public $vkLink;
 	public $facebookLink;
@@ -30,7 +31,7 @@ class Site extends CFormModel
 	public function rules()
     {
         return array(
-        	array('email', 'email'),
+        	array('emailOrder, emailAdmin', 'email'),
         	array('vkLink, facebookLink, instakLink, foursquareLink, twitterLink', 'url'),
             array('phone', 'safe'),
 		);
@@ -48,8 +49,9 @@ class Site extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'email' => Yii::t('main', 'Email'),
-			'phone' => Yii::t('main', 'Phone'),
+			'emailAdmin' => Yii::t('main', 'Email Admin'),
+			'emailOrder' => Yii::t('main', 'Email Order'),
+			'phone' => Yii::t('main', 'Single Phone'),
 			'vkLink' => Yii::t('main', 'vkLink'),
 			'facebookLink' => Yii::t('main', 'facebookLink'),
 			'instakLink' => Yii::t('main', 'instakLink'),

@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="/js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="/plugins/jquery-inputmask/jquery.inputmask.js"></script>
 	<script type="text/javascript" src="/plugins/jquery-inputmask/jquery.inputmask.date.extensions.js"></script>
+	<script type="text/javascript" src="/plugins/jquery-inputmask/jquery.inputmask.regex.extensions.js"></script>
 	<script type="text/javascript" src="/js/scripts.js"></script>
 	<script type="text/javascript" src="/js/cart.js"></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />

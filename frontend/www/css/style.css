@@ -234,9 +234,15 @@ body {
 	margin-left: 270px;
 }
 
+.banner-block .left .delivery-icon {
+	margin: 0 auto;
+	background: url(../img/sprite.png) no-repeat -282px -29px;
+	width: 36px;
+	height: 35px;
+}
+
 .banner-block .left .delivery {
-	padding-top: 45px;
-	background: url(../img/icon-car.png) no-repeat top center;
+	padding-top: 10px;
 	font-size: 18px;
 	text-align: center;
 	font-weight: bolder;
@@ -257,18 +263,25 @@ body {
 
 .banner-block .left .more-info a {
 	color: #000000;
-	text-decoration: none;
 	font-size: 16px;
 }
 
 .banner-block .left .call-me {
-	padding-top: 45px;
-	background: url(../img/icon-phone.png) no-repeat top center;
 	font-size: 16px;
 	text-align: center;
-	color: #ac1d1d;
 	margin-top: 32px;
-	cursor: pointer;
+}
+
+.banner-block .left .call-me a{
+	color: #ac1d1d;
+}
+
+.banner-block .left .call-me .call-me-icon {
+	background: url(../img/sprite.png) no-repeat -319px -29px;   
+	width: 36px;
+	height: 36px;
+	margin: 0 auto 15px;
+	cursor: pointer;	
 }
 
 .gallery-ben {
@@ -611,6 +624,8 @@ body {
 	bottom: 3px;
 	right: 0;
 	z-index: 1;
+	width: 120px;
+	border-radius: 10px 10px 0 0
 }
 
 .wrapper .menu-main-block  .recomended .recomended-list .recomended-list-item .name,
@@ -678,6 +693,7 @@ body {
 .footer .footer-content .sotsseti-block {
 	margin-left: 25px;
 	float: left;
+	width: 235px;
 }
 
 .footer .footer-content .sotsseti-block .sotsseti-block-links {
@@ -727,6 +743,13 @@ body {
 	color: #ffffff;
 	font-size: 18px;
 	margin-top:16px
+}
+
+.footer .footer-content .addr-block-addr-phone-note {
+	font-size: 24px;
+	text-align: left;
+	color: #ffffff;
+	padding-top:10px;
 }
 
 .footer .footer-content .addr-block .addr-block-addr-phone {
@@ -1448,9 +1471,10 @@ i {
 .wrapper .menu-block .menu-list .menu-item .name {
 	margin: 11px 0 8px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: bolder;
 	text-transform: uppercase;
+	height: 46px;
 }
 
 .wrapper .menu-block .menu-list .menu-item .price {
@@ -1547,6 +1571,7 @@ i {
 	width: 226px;
 	display: table-cell;
 	vertical-align: middle;
+	padding: 0 5px;
 }
 
 #dishModal .dish-info-container .info {
@@ -1619,6 +1644,7 @@ i {
 	height: 66px;
 	padding: 12px;
 	font-size: 13px;
+	resize: false;
 }
 .textarea.textarea-280{
 	background: url(../img/input-bg.png) no-repeat 0 0;
@@ -1722,10 +1748,11 @@ input[type=checkbox]:checked + label:before {
 
 .submit-button {
 	width: 108px;
-	height: 29px;
-	background: url(../img/submit-button.png) no-repeat;
+	height: 27px;
+	background: url(../img/sprite.png) no-repeat -328px -1px;
 	display: block;
 	border: none;
+	cursor: pointer;
 }
 
 #orderModal .modal-body {
@@ -2147,8 +2174,81 @@ input[type=checkbox]:checked + label:before {
 	font-weight: bolder;
 }
 
+#callMeModal .modal-body {
+	padding: 0;
+}
+
+#callMeModal .modal-dialog {
+	width: 466px;
+}
+
+#callMeModal .callMe-modal-header{
+	height: 73px;
+	background: #d5c8a2;
+	border-radius: 5px 5px 0 0;
+	line-height: 73px;
+	font-size: 24px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #ffffff;
+	font-weight: bolder;
+}
+
+#callMeModal .callMe-modal-content {
+	padding: 41px 93px;
+}
+#callMeModal .callMe-modal-content input,
+#callMeModal .callMe-modal-content textarea
+{
+	margin-bottom: 12px;
+}
+
+#callMeModal .callMe-modal-content .submit-button {
+	margin: 0 auto;
+}
+
+#callMeModal .callMe-modal-content .note {
+	font-size: 12.5px;
+	font-style: italic;
+}
+
 .wrapper .delivery-block .biege-part .map-container{
 	margin: 60px 0 40px;
+	padding: 4px;
+	border-radius: 10px;
+	background: #ffffff;
+}
+
+.wrapper .review-block {
+	background: #ffffff;
+	padding: 10px 25px 30px 270px;	
+}
+
+.wrapper .review-block .review-headline {
+	text-transform: uppercase;
+	color: 	#AC1D1D;
+	font-size: 16px;
+}
+
+.wrapper .review-block .review-text{
+	font-size: 14px;
+}
+
+.wrapper .review-block .review-text p{
+	margin: 15px 0;	
+}
+
+.wrapper .review-block .review-form-block{
+	width: 300px;
+}
+
+.wrapper .review-block .review-form-block input,
+.wrapper .review-block .review-form-block textarea {
+	margin-bottom: 12px;	
+}
+
+.wrapper .review-block .review-form-block p.note {
+	color: #333333;
 }
 
 .clear {

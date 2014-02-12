@@ -18,8 +18,10 @@ class SiteController extends FController
 		$menuMainBlock = $menuController->menuMainBlock();
 		
 		$check = $menuController->check();
+		
+		$recommended = $menuController->recommendedBlock();
 
-		$this->render('index', array('newsMainBlock' => $newsMainBlock, 'menuMainBlock' => $menuMainBlock, 'mainGallery' => $mainGallery, 'check' => $check));
+		$this->render('index', array('newsMainBlock' => $newsMainBlock, 'menuMainBlock' => $menuMainBlock, 'mainGallery' => $mainGallery, 'check' => $check, 'recommended' => $recommended));
 	}
 
 	/**
@@ -34,5 +36,27 @@ class SiteController extends FController
 			else
 				$this->render('error', $error);
 		}
+	}
+	
+	public function actionCallMeSubmit() {
+		if (!empty($_POST)) {
+			$callMe['name'] = $_POST['name'];
+			$callMe['phone'] = $_POST['phone'];
+			$callMe['comment'] = $_POST['comment'];
+		
+			$mailBlank = $this->renderPartial("//mailBlank/callMe", array("callMe" => $callMe), true);
+				
+			$site = new Site();
+			
+			SendMail::send($site->emailAdmin, "Заказать звонок", $mailBlank);
+		
+		}
+		
+		echo CJSON::encode(
+			array(
+				'error'=>false,
+			)
+		);
+		Yii::app()->end();
 	}
 }
