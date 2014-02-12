@@ -36,8 +36,7 @@ class ReviewController extends RController
 	}
 	
 	public function actionDelete($id) {
-		$action = $this->loadModel('Action', $id);
-		$action->deleteFull();
-		$this->redirect($this->createUrl('action/index'));
+		Review::model()->deleteByPk($id);
+		$this->redirect($this->createUrl('review/index'));
 	}
 }

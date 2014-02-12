@@ -7,7 +7,7 @@
 				<li><a href="/delivery/">Доставка</a></li>
 				<li><a href="/news/">Все интересное</a></li>
 				<li><a href="/team/">Наша команда</a></li>
-				<li><a href="#">Поставщикам</a></li>
+				<li><a href="/partner/">Поставщикам</a></li>
 				<li><a href="/bonus/">Бонусы</a></li>
 				<div class="clear"></div>
 			</ul>

@@ -11,6 +11,7 @@ class FController extends EController
 	const MENU_MENU_ITEM = "menu";
 	const DELIVERY_MENU_ITEM = "delivery";
 	const BONUS_MENU_ITEM = "bonus";
+	const PARTNER_MENU_ITEM = "partner";
 	
 	protected $dropdownMenu;
 	
