@@ -75,6 +75,14 @@ $this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM] = 1;
 		</div>
 		
 		<div class="control-group">
+			<?php echo $form->label($model,'vtour',array('class'=>'control-label')); ?>
+			<div class="controls">
+				<?php echo $form->textField($model,'vtour',array('class'=>'m-wrap medium')); ?>
+				<span class="help-inline"><?php echo $form->error($model,'vtour'); ?></span>
+			</div>
+		</div>
+		
+		<div class="control-group">
 			<?php echo $form->label($model,'smoking',array('class'=>'control-label')); ?>
 			<div class="controls">
 				<?php echo $form->checkBox($model,'smoking'); ?>

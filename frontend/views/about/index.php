@@ -124,7 +124,7 @@ Yii::app()->clientScript->registerCssFile(
 				</div>
 				<div class="h2"><span>Виртуальный тур</span></div>
 				<div class="h3">ресторана на <?php echo $val['addressStreet']?></div>
-				<a href="#" class="virtual-tour">
+				<a href="<?php echo $val['vtour']?>" class="virtual-tour" target="_blank">
 					<div class="icon-eye"></div>
 					Посмотреть тур
 				</a>

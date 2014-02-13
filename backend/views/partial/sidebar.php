@@ -61,8 +61,26 @@
 		<?php if(Yii::app()->user->checkAccess('Review.*')): ?>
 		<li class="start <?php if (!empty($this->menuActiveItems[BController::REVIEW_MENU_ITEM])) { echo 'active'; } ?>">
 			<a href="<?php echo $this->createUrl('review/index') ?>">
-				<i class="icon-coffee"></i>
+				<i class="icon-comment-alt"></i>
 				<span class="title">Отзывы</span>
+				<span class="selected"></span>
+			</a>
+		</li>
+		<?php endif;?>
+		<?php if(Yii::app()->user->checkAccess('Bonus.*')): ?>
+		<li class="start <?php if (!empty($this->menuActiveItems[BController::BONUS_MENU_ITEM])) { echo 'active'; } ?>">
+			<a href="<?php echo $this->createUrl('bonus/index') ?>">
+				<i class="icon-gift"></i>
+				<span class="title">Бонусы</span>
+				<span class="selected"></span>
+			</a>
+		</li>
+		<?php endif;?>
+		<?php if(Yii::app()->user->checkAccess('Partner.*')): ?>
+		<li class="start <?php if (!empty($this->menuActiveItems[BController::PARTNER_MENU_ITEM])) { echo 'active'; } ?>">
+			<a href="<?php echo $this->createUrl('partner/index') ?>">
+				<i class="icon-group"></i>
+				<span class="title">Поставщикам</span>
 				<span class="selected"></span>
 			</a>
 		</li>
@@ -109,7 +127,7 @@
 											|| !empty($this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM])
 									) { echo 'active'; } ?>">
 			<a href="javascript: ;">
-				<i class="icon-flag"></i>
+				<i class="icon-bookmark-empty"></i>
 				<span class="title">О ресторане</span>
 				<span class="selected"></span>
 				<span class="arrow <?php if (!empty($this->menuActiveItems[BController::ABOUT_RESTAURANT_MENU_ITEM])

@@ -53,8 +53,10 @@
 			</div>
 		</div>
 		<div class="clear"></div>
+		
 		<div class="footer-copyright">
 			2012 © Рестораны на каждый день ­«Гости»
+			<div class="footer-build">Разработано в <a href="http://www.vector-web.ru/">Вектор Web</a></div>
 		</div>
 	</div><!-- .footer -->
 	

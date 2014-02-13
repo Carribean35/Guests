@@ -49,4 +49,5 @@ return array(
 	'Email Order'=>'Email для заказов',
 	'Single Phone'=>'Единый телефон',
 	'Type' => 'Тип',
+	'Vtour'=>'Виртуальный тур',
 );

@@ -15,6 +15,7 @@
  * @property integer $vip
  * @property string $phone
  * @property integer $visible
+ * @property string $vtour
  */
 class Filial extends EActiveRecord
 {
@@ -37,6 +38,8 @@ class Filial extends EActiveRecord
 			array('addressStreet, addressHouse, phone', 'required'),
 			array('smoking, nosmoking, hall, wifi, vip, visible', 'numerical', 'integerOnly'=>true),
 			array('addressStreet, phone', 'length', 'max'=>32),
+			array('vtour', 'length', 'max'=>128),
+			array('vtour', 'url'),
 			array('addressHouse', 'length', 'max'=>16),
 			array('smoking, nosmoking, hall, wifi, vip, phone, text, visible', 'safe'),
 			// The following rule is used by search().
@@ -73,6 +76,7 @@ class Filial extends EActiveRecord
 			'vip' => Yii::t('main', 'Vip'),
 			'phone' => Yii::t('main', 'Phone'),
 			'visible' => Yii::t('main', 'Visible'),
+			'vtour' => Yii::t('main', 'Vtour'),
 		);
 	}
 

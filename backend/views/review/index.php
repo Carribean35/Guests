@@ -47,7 +47,7 @@ $this->menuActiveItems[BController::REVIEW_MENU_ITEM] = 1;
 								if ($data['type'] == 2)
 									$img = "bad";
 								if ($data['type'] == 3)
-									$img = "notice";
+									$img = "offer";
 
 								return '<img src="/img/icon-'.$img.'.png">';
 							},

@@ -42,6 +42,18 @@
 								</div>
 								<div class="count-container">
 									<input type="text" class="dish-cart-count" value="1" data-bind="value: count">
+									<ul class="dish-cart-count-list">
+										<li>1</li>
+										<li>2</li>
+										<li>3</li>
+										<li>4</li>
+										<li>5</li>
+										<li>6</li>
+										<li>7</li>
+										<li>8</li>
+										<li>9</li>
+										<li>10</li>
+									</ul>
 								</div>
 								<div class="price-container" data-bind="text: fullPrice">
 									120
@@ -79,7 +91,7 @@
 								<label class="radio-custom" for="deviliry2">Доставка курьером</label>
 							</div>
 							<div class="delivery-link">
-								<a href="#">Посмотреть стоимость доставки</a>
+								<a href="/delivery/" target="_blank">Посмотреть стоимость доставки</a>
 							</div>
 						</div>
 						<div class="line"></div>
@@ -101,23 +113,25 @@
 						<div class="line"></div>
 						<input type="text" name="Order[email]" placeholder="Электронная почта" class="input-text input-280">
 						<div class="line"></div>
-						<input type="text" name="Order[street]" placeholder="Улица" class="input-text input-280">
-						<div class="two-small-inp-container clear">
-							<input type="text" name="Order[house]" placeholder="Дом" class="input-text input-130 fleft">
-							<input type="text" name="Order[porch]" placeholder="Подъезд" class="input-text input-130 fright" id="orderPorch">
-							<div class="clear"></div>
+						<div id="order-add-block">
+							<input type="text" name="Order[street]" placeholder="Улица" class="input-text input-280">
+							<div class="two-small-inp-container clear">
+								<input type="text" name="Order[house]" placeholder="Дом" class="input-text input-130 fleft">
+								<input type="text" name="Order[porch]" placeholder="Подъезд" class="input-text input-130 fright" id="orderPorch">
+								<div class="clear"></div>
+							</div>
+							<div class="two-small-inp-container clear">
+								<input type="text" name="Order[building]" placeholder="Строение" class="input-text input-130 fleft">
+								<input type="text" name="Order[floor]" placeholder="Этаж" class="input-text input-130 fright"  id="orderFloor">
+								<div class="clear"></div>
+							</div>
+							<div class="two-small-inp-container clear">
+								<input type="text" name="Order[housing]" placeholder="Корпус" class="input-text input-130 fleft">
+								<input type="text" name="Order[apartment]" placeholder="Квартира" class="input-text input-130 fright"  id="orderApartment">
+								<div class="clear"></div>
+							</div>
+							<div class="line"></div>
 						</div>
-						<div class="two-small-inp-container clear">
-							<input type="text" name="Order[building]" placeholder="Строение" class="input-text input-130 fleft">
-							<input type="text" name="Order[floor]" placeholder="Этаж" class="input-text input-130 fright"  id="orderFloor">
-							<div class="clear"></div>
-						</div>
-						<div class="two-small-inp-container clear">
-							<input type="text" name="Order[housing]" placeholder="Корпус" class="input-text input-130 fleft">
-							<input type="text" name="Order[apartment]" placeholder="Квартира" class="input-text input-130 fright"  id="orderApartment">
-							<div class="clear"></div>
-						</div>
-						<div class="line"></div>
 						<div class="radio-group-text">Способ оплаты</div>
 						<div class="radiobuttons-group">
 							<div>
@@ -142,9 +156,11 @@
 								<label class="radio-custom" for="dateType2">К определенному времени</label>
 							</div>
 						</div>
-						<input type="text" name="Order[date]" placeholder="Дата" class="input-text input-130" id="orderDate">
-						<input type="text" name="Order[hour]" placeholder="Часы" class="input-text input-70" style="margin-left:18px;" id="orderHour">
-						<input type="text" name="Order[min]" placeholder="Мин" class="input-text input-70" style="margin-left:5px;" id="orderMin">
+						<div id="order-time-block" style="display:none;">
+							<input type="text" name="Order[date]" placeholder="Дата" class="input-text input-130" id="orderDate">
+							<input type="text" name="Order[hour]" placeholder="Часы" class="input-text input-70" style="margin-left:18px;" id="orderHour">
+							<input type="text" name="Order[min]" placeholder="Мин" class="input-text input-70" style="margin-left:5px;" id="orderMin">
+						</div>
 						<div class="line"></div>
 						<input type="text" name="Order[personCount]" placeholder="Количество персон" class="input-text input-130" id="orderPersonCount">
 						<div class="line"></div>

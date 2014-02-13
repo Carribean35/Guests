@@ -1,13 +1,10 @@
-<?php 
-$this->menuActiveItems[FController::MENU_MENU_ITEM] = 1;
-?>
 <div class="left-column-block">
 	<?php echo $sectionLeftMenu?>
 	<?php echo $check?>
 </div>
 
 <div class="menu-block">
-	<div class="h1"><span class="white"><?php echo $section->name;?></span></div>
+	<div class="h1"><span class="white">Поиск</span></div>
 	<div class="menu-list">
 		<?php foreach($dishs AS $key => $val) :?>
 			<div class="menu-item" id="dish-<?php echo $val['id']?>">
@@ -22,24 +19,12 @@ $this->menuActiveItems[FController::MENU_MENU_ITEM] = 1;
 				<input type="hidden" value="<?php echo $val['id']?>" class="dishId">
 				<div class="name"><?php echo $val['name']?></div>
 				<div class="price"><span><?php echo $val['price']?></span> Р</div>
-				<div class="weight fleft"><?php echo $val['weight']?> <?php if ($val['pid'] == 7) : ?>мл.<?php else :?>гр.<?php endif;?></div>
-				<div class="call fright"><?php echo $val['calories']?> Ккал.</div>
+				<div class="weight fleft"><?php echo $val['weight']?> гр.</div>
+				<div class="call fright"><?php echo $val['calories']?> калл.</div>
 				<div class="clear"></div>
 				<div class="text"><?php echo $val['text']?></div>
 				<div class="line"></div>
-				<input type="text" class="dish-cart-count" value="1" readonly>
-				<ul class="dish-cart-count-list">
-					<li>1</li>
-					<li>2</li>
-					<li>3</li>
-					<li>4</li>
-					<li>5</li>
-					<li>6</li>
-					<li>7</li>
-					<li>8</li>
-					<li>9</li>
-					<li>10</li>
-				</ul>
+				<input type="text" class="dish-cart-count" value="1">
 				<div class="add-to-cart-button" data-bind="click: function(data, bind) {
 					var self = $(bind.currentTarget);
 					var count = self.parent().find('.dish-cart-count').val();
@@ -76,26 +61,11 @@ $this->menuActiveItems[FController::MENU_MENU_ITEM] = 1;
 				<div class="text"></div>
 				<div class="line"></div>
 				<div class="weight fleft"></div>
-				
+				<div class="price fleft"></div>
 				<div class="call fright"></div>
 				<div class="clear"></div>
 				<div class="line"></div>
-				<div class="dish-cart-count-modal-container">
-					<input type="text" class="dish-cart-count" value="1">
-					<ul class="dish-cart-count-list">
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-						<li>6</li>
-						<li>7</li>
-						<li>8</li>
-						<li>9</li>
-						<li>10</li>
-					</ul>
-				</div>
-				<div class="price fright"></div>
+				<input type="text" class="dish-cart-count" value="1">
 				<div class="add-to-cart-button"  data-bind="click: function(data, bind) {
 					var self = $(bind.currentTarget);
 					var count = self.parent().find('.dish-cart-count').val();

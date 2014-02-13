@@ -213,8 +213,6 @@ $(document).ready(function() {
 			orderModelStep3();
 	})
 	
-	$(".dish-cart-count").inputmask({"mask": "99", "placeholder" : " "});
-	
 	$("#orderPhone").inputmask({"mask": "+7 (999) 999-99-99"});
 	$("#orderPorch, #orderFloor, #orderPersonCount").inputmask({"mask": "99", "placeholder" : " "});
 	$("#orderApartment").inputmask({"mask": "999", "placeholder" : " "});
@@ -240,19 +238,21 @@ $(document).ready(function() {
 			return false;
 	    }
 		
-		if (data['Order[street]'] === "") {
-			alert("Необходимо указать улицу!");
-			return false;
-		}
-		
-		if (data['Order[house]'] === "") {
-			alert("Необходимо указать дом!");
-			return false;
-		}
-		
-		if(data['Order[apartment]'] === ""){
-			alert("Необходимо указать квартиру!");
-			return false;
+		if (data['Order[deviliry]'] == 2) {
+			if (data['Order[street]'] === "") {
+				alert("Необходимо указать улицу!");
+				return false;
+			}
+			
+			if (data['Order[house]'] === "") {
+				alert("Необходимо указать дом!");
+				return false;
+			}
+			
+			if(data['Order[apartment]'] === ""){
+				alert("Необходимо указать квартиру!");
+				return false;
+			}
 		}
 		
 		var dishes = $.cookie('cart');
@@ -335,6 +335,40 @@ $(document).ready(function() {
 			}
 			
 		})
+	})
+	
+	$("#search-button").on("click", function() {
+		var q = $("#search-input").val();
+		if (q.length != 0) {
+			document.location = '/search/?q=' + q;
+		}
+	})
+	
+	$("#deviliry1").on("change", function() {
+		$("#order-add-block").hide();
+	})
+	
+	$("#deviliry2").on("change", function() {
+		$("#order-add-block").show();		
+	})
+	
+	$("#dateType1").on("change", function() {
+		$("#order-time-block").hide();
+	})
+	
+	$("#dateType2").on("change", function() {
+		$("#order-time-block").show();		
+	})
+	
+	$(document).on("click", ".dish-cart-count", function() {
+		$(".dish-cart-count-list").hide();
+		$(this).parent().find(".dish-cart-count-list").show();
+	})
+	
+	$(document).on("click", ".dish-cart-count-list li", function() {
+		$(this).parent().parent().find(".dish-cart-count").val($(this).html());
+		$(this).parent().parent().find(".dish-cart-count").change();
+		$(this).parent().hide();
 	})
 	
 })

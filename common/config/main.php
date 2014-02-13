@@ -38,12 +38,12 @@ return array(
 				"debug" => 0, //отображение информации дебаггера (0 - нет вообще)
 				"auth" => true, //сервер требует авторизации
 				"port" => 25, //порт (по-умолчанию - 25)
-				"username" => "carribean", //имя пользователя на сервере
-				"password" => "qjucgjrjty", //пароль
-				"addreply" => "carribean@yandex.ru", //ваш е-mail
+				"username" => "restoran-gosty", //имя пользователя на сервере
+				"password" => "y6xOxyT2QC", //пароль
+				"addreply" => "restoran-gosty@yandex.ru", //ваш е-mail
 				"replyto" => "", //e-mail ответа
-				"fromname" => "guests.ru", //имя
-				"from" => "carribean@yandex.ru", //от кого
+				"fromname" => "restoran-gosty.ru", //имя
+				"from" => "restoran-gosty@yandex.ru", //от кого
 				"charset" => "utf-8", //от кого
 		)
 	)

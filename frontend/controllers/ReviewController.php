@@ -7,7 +7,12 @@
 class ReviewController extends FController
 {
 	public function actionIndex(){
-
+		$criteria=new CDbCriteria;
+// 		$criteria->order = "createDate DESC";
+		$criteria->condition = "visible = 1 ";
+		$reviews = Review::model()->findAll($criteria);
+		
+		$this->render('index', array('reviews' => $reviews));
 	}
 	
 	public function actionGood() {

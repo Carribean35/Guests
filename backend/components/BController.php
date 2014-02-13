@@ -17,6 +17,8 @@ class BController extends EController
 	const ABOUT_RESTAURANT_MENU_ITEM = "about";
 	const ABOUT_FILIAL_MENU_ITEM = "about_filial";
 	const REVIEW_MENU_ITEM = "review";
+	const BONUS_MENU_ITEM = "bonus";
+	const PARTNER_MENU_ITEM = "partner";
 	
 	
 	public $breadcrumbs;

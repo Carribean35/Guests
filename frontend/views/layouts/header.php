@@ -33,6 +33,9 @@
 						<a href="/delivery/" class="<?php if (!empty($this->menuActiveItems[FController::DELIVERY_MENU_ITEM])) { echo 'active'; } ?>">ДОСТАВКА</a>
 					</li>
 					<li>
+						<a href="/review/" class="<?php if (!empty($this->menuActiveItems[FController::REVIEW_MENU_ITEM])) { echo 'active'; } ?>">ОТЗЫВЫ</a>
+					</li>
+					<li>
 						<a href="/news/" class="<?php if (!empty($this->menuActiveItems[FController::NEWS_MENU_ITEM]) ||
 															!empty($this->menuActiveItems[FController::ACTION_MENU_ITEM])) { echo 'active'; } ?>">ВСЕ ИНТЕРЕСНОЕ</a>
 					</li><li>
@@ -43,7 +46,8 @@
 				</ul>
 			</div>
 			<div class="serach-block">
-				<input type="text" placeholder="Поиск">
+				<input type="text" placeholder="Поиск" id="search-input">
+				<div class="search-button" id="search-button"></div>
 			</div>
 		</div>
 	</div><!-- .header-->

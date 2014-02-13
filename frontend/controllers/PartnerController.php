@@ -8,7 +8,8 @@ class PartnerController extends FController
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+		$partner = new Partner();
+		$this->render('index', array('partner' => $partner));
 	}
 
 }

@@ -8,7 +8,8 @@ class BonusController extends FController
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+		$bonus = new Bonus();
+		$this->render('index', array('bonus' => $bonus));
 	}
 
 }
