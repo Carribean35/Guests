@@ -117,7 +117,7 @@ body {
 }
 
 .header .site-menu-block .serach-block input{
-	background: url(../img/search-input.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -1px -363px;
 	border: none;
 	width: 128px;
 	height: 30px;
@@ -360,13 +360,13 @@ body {
 	float: left;
 	width: 11px;
 	height: 12px;
-	background: url(../img/gallery-pagination.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -282px -96px;
 	cursor: pointer;
 	margin: 0 2px;
 }
 
 .gallery-ben .paginat ul li.active {
-	background: url(../img/gallery-pagination.png) no-repeat -11px 0;
+	background: url(../img/sprite.png) no-repeat -293px -96px;
 }
 
 .news-main-block {
@@ -588,7 +588,7 @@ body {
 .button-issue {
 	width: 108px;
 	height: 29px;
-	background: url(../img/button-issue.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -219px 0;
 	cursor: pointer;
 }
 
@@ -733,19 +733,19 @@ body {
 	float: left;
 }
 .sotseti-icon.vk {
-	background: url(../img/icon-vk.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -356px -91px;
 }
 .sotseti-icon.facebook {
-	background: url(../img/icon-facebook.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -282px -66px;
 }
 .sotseti-icon.twitter {
-	background: url(../img/icon-twitter.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -315px -66px;
 }
 .sotseti-icon.instagramm {
-	background: url(../img/icon-instagramm.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -356px -29px;
 }
 .sotseti-icon.foursquare {
-	background: url(../img/icon-foursquare.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -356px -60px;
 }
 
 .footer .footer-content .sotsseti-block .sotsseti-block-headline {
@@ -812,15 +812,15 @@ body {
 }
 
 .footer .footer-content .smile-block .smile.good{
-	background: url(../img/icon-good.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -405px -93px;
 }
 
 .footer .footer-content .smile-block .smile.bad{
-	background: url(../img/icon-bad.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -405px -29px;
 }
 
 .footer .footer-content .smile-block .smile.offer{
-	background: url(../img/icon-offer.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -405px -61px;
 }
 
 div.h1 {
@@ -966,19 +966,19 @@ div.h2 {
 }
 
 .about-block .about-list .about-item .icons .icon-smoking{
-	background: url(../img/filial-icons.png) no-repeat 0 0;
+	background: url(../img/sprite.png) no-repeat 0px -303px;
 }
 .about-block .about-list .about-item .icons .icon-nosmoking{
-	background: url(../img/filial-icons.png) no-repeat -62px 0;
+	background: url(../img/sprite.png) no-repeat -62px -303px;
 }
 .about-block .about-list .about-item .icons .icon-children{
-	background: url(../img/filial-icons.png) no-repeat -124px 0;
+	background: url(../img/sprite.png) no-repeat -124px -303px;
 }
 .about-block .about-list .about-item .icons .icon-wifi{
-	background: url(../img/filial-icons.png) no-repeat -186px 0;
+	background: url(../img/sprite.png) no-repeat -186px -303px;
 }
 .about-block .about-list .about-item .icons .icon-vip{
-	background: url(../img/filial-icons.png) no-repeat -247px 0;
+	background: url(../img/sprite.png) no-repeat -247px -303px;
 }
 
 .about-block .about-list .about-item .virtual-tour {
@@ -991,7 +991,7 @@ div.h2 {
 .about-block .about-list .about-item .virtual-tour .icon-eye{
 	width: 60px;
 	height: 60px;
-	background: url(../img/filial-icons.png) no-repeat -308px 0;
+	background: url(../img/sprite.png) no-repeat -308px -303px;
 	margin: 0 auto;
 }
 
@@ -1322,7 +1322,7 @@ div.h2 {
 }
 
 .gallery-team .left-arrow {
-	background: url(../img/team-gallery-left-arrow.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -367px -312px;
 	width: 17px;
 	height: 42px;
 	position: absolute;
@@ -1332,7 +1332,7 @@ div.h2 {
 }
 
 .gallery-team .right-arrow {
-	background: url(../img/team-gallery-right-arrow.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -383px -312px;
 	width: 17px;
 	height: 42px;
 	position: absolute;
@@ -1422,7 +1422,7 @@ i {
 .anketa-button {
 	width: 108px;
 	height: 29px;
-	background: url(../img/anketa-button.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -110px 0;
 	display: block;
 }
 
@@ -1653,7 +1653,7 @@ i {
 .add-to-cart-button {
 	width: 108px;
 	height: 29px;
-	background: url(../img/add-to-cart.png) no-repeat;
+	background: url(../img/sprite.png) no-repeat -1px 0;
 	cursor: pointer;
 }
 
@@ -1751,27 +1751,27 @@ i {
 }
 
 .input-text.input-437{
-	background: url(../img/input-bg.png) no-repeat 0 -154px;
+	background: url(../img/sprite.png) no-repeat -1px -182px;
 	width: 413px;
 }
 
 .input-text.input-208{
-	background: url(../img/input-bg.png) no-repeat 0 -92px;
+	background: url(../img/sprite.png) no-repeat -1px -120px;
 	width: 184px;
 }
 
 .input-text.input-280{
-	background: url(../img/input-bg.png) no-repeat 0 -123px;
+	background: url(../img/sprite.png) no-repeat -1px -151px;
 	width: 256px;
 }
 
 .input-text.input-130{
-	background: url(../img/input-bg.png) no-repeat -281px -123px;
+	background: url(../img/sprite.png) no-repeat -282px -151px;
 	width: 106px;
 }
 
 .input-text.input-70{
-	background: url(../img/input-bg.png) no-repeat -210px -92px;
+	background: url(../img/sprite.png) no-repeat -120px -211px;
 	width: 46px;
 }
 
@@ -1783,8 +1783,9 @@ i {
 	resize: false;
 }
 .textarea.textarea-280{
-	background: url(../img/input-bg.png) no-repeat 0 0;
+	background: url(../img/sprite.png) no-repeat -1px -29px;
 	width: 256px;
+	resize: none;
 }
 
 .wrapper .anketa-block {
@@ -1924,11 +1925,11 @@ input[type=checkbox]:checked + label:before {
 }
 
 #orderModal .order-modal-header .order-steps .white .circle {
-	background: url(../img/circles.png) no-repeat 0 0;
+	background: url(../img/sprite.png) no-repeat -342px -121px;
 }
 
 #orderModal .order-modal-header .order-steps .black .circle {
-	background: url(../img/circles.png) no-repeat -29px 0;
+	background: url(../img/sprite.png) no-repeat -371px -121px;
 }
 
 #orderModal .order-modal-header .order-steps .step{
@@ -2170,19 +2171,19 @@ input[type=checkbox]:checked + label:before {
 }
 
 .wrapper .delivery-block .delivery-icon-list .delivery-icon-container .deivery-icon.free-icon{
-	background: url(../img/delivery-icons.png) no-repeat -277px 0;
+	background: url(../img/sprite.png) no-repeat -277px -212px;
 }
 
 .wrapper .delivery-block .delivery-icon-list .delivery-icon-container .deivery-icon.everyday-icon{
-	background: url(../img/delivery-icons.png) no-repeat -185px 0;
+	background: url(../img/sprite.png) no-repeat -185px -212px;
 }
 
 .wrapper .delivery-block .delivery-icon-list .delivery-icon-container .deivery-icon.time-icon{
-	background: url(../img/delivery-icons.png) no-repeat -93px 0;
+	background: url(../img/sprite.png) no-repeat -93px -212px;
 }
 
 .wrapper .delivery-block .delivery-icon-list .delivery-icon-container .deivery-icon.dollar-icon{
-	background: url(../img/delivery-icons.png) no-repeat -0px 0;
+	background: url(../img/sprite.png) no-repeat 0px -212px;
 }
 
 .wrapper .delivery-block .delivery-icon-list .delivery-icon-container .name {
@@ -2262,7 +2263,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .wrapper .delivery-block .biege-part .delivery-icon-container .deivery-icon.placemarker-icon{
-	background: url(../img/delivery-icons.png) no-repeat -369px 0;
+	background: url(../img/sprite.png) no-repeat -369px -212px;
 }
 
 .wrapper .delivery-block .biege-part .delivery-icon-container .text {
