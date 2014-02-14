@@ -14,7 +14,7 @@
 	    	
 	    	setInterval(function() {
 	    		methods.next.apply( self, Array.prototype.slice.call( arguments, 1 ))
-	    	}, 5000);
+	    	}, 10000);
 	    	
 	    	
 	    	this.count = this.find(".ul-container ul li").length; 
@@ -369,6 +369,10 @@ $(document).ready(function() {
 		$(this).parent().parent().find(".dish-cart-count").val($(this).html());
 		$(this).parent().parent().find(".dish-cart-count").change();
 		$(this).parent().hide();
+	})
+	
+	$(".add-to-cart-button").on("click", function() {
+		$('#dishModal').modal('hide');		
 	})
 	
 })

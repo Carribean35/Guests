@@ -646,6 +646,14 @@ body {
 	margin-top: 5px;
 }
 
+.wrapper .menu-main-block  .recomended .recomended-list .recomended-list-item .text {
+	display: none;
+}
+.wrapper .menu-main-block  .recomended .recomended-list .recomended-list-item .call {
+	display: none;
+}
+
+
 .wrapper .menu-main-block  .recomended .recomended-list .recomended-list-item .vline {
 	float: left;
 	margin: 0 10px;

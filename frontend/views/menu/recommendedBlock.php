@@ -4,11 +4,17 @@
 		<div class="border"></div>
 		<?php foreach($dish AS $key => $val) :?>
 		<div class="recomended-list-item">
-			<img src="<?php echo $val->imagesUrl."199x129/".$val['id'].".jpg"?>" class="img">
+			<div>
+				<a rel="<?php echo $val['id']?>" class="detailDish" href="javascript:void(0);">
+					<img src="<?php echo $val->imagesUrl."199x129/".$val['id'].".jpg"?>" class="img">
+				</a>
+			</div>
 			<div class="name"><?php echo $val['name']?></div>
+			<div class="text"><?php echo $val['text']?></div>
+			<div class="call fright"><?php echo $val['calories']?> Ккал.</div>
 			<div class="weight"><?php echo $val['weight']?> гр.</div>
 			<div class="vline">|</div>
-			<div class="price"><?php echo $val['price']?> руб.</div>
+			<div class="price"><span><?php echo $val['price']?></span> руб.</div>
 			<div class="clear"></div>
 		</div>
 		<?php endforeach;?>

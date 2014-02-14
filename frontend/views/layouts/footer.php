@@ -37,7 +37,7 @@
 			<div class="addr-block">
 				<div class="addr-block-headline">Адреса ресторанов:</div>
 				<div class="addr-block-addr">
-					ул. Цюрюпы, 12
+					ул. Цюрупы, 12
 				</div>
 				<div class="addr-block-addr">
 					ул. С.Перовской, 42

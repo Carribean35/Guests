@@ -19,7 +19,7 @@ $this->menuActiveItems[FController::NEWS_MENU_ITEM] = 1;
 	<div class="h1"><span>Новости</span></div>
 	<div class="news-list">
 		<?php foreach($news AS $key => $val) :?>
-		<div class="news-item">
+		<div class="news-item" id="news_<?php echo $val['id']?>">
 			<div class="date"><?php echo Yii::app()->dateFormatter->format("dd MMMM y", $val['createDate']);?></div>
 			<div class="h2"><span><?php echo $val['name']?></span></div>
 			<div class="h3"><span><?php echo $val['name2']?></span></div>

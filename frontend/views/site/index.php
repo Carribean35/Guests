@@ -55,3 +55,61 @@
 	<div class="clear"></div>
 </div>
 <div class="wave-white"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="dishModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-body">
+		<div class="img-container">
+			<img src="">
+		</div>
+		<div class="dish-info-container">
+			<div class="name"></div>
+			<div class="info">
+				<input type="hidden" value="" class="dishId">
+				<div class="text"></div>
+				<div class="line"></div>
+				<div class="weight fleft"></div>
+				
+				<div class="call fright"></div>
+				<div class="clear"></div>
+				<div class="line"></div>
+				<div class="dish-cart-count-modal-container">
+					<input type="text" class="dish-cart-count" value="1">
+					<ul class="dish-cart-count-list">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li>10</li>
+					</ul>
+				</div>
+				<div class="price fright"></div>
+				<div class="add-to-cart-button"  data-bind="click: function(data, bind) {
+					var self = $(bind.currentTarget);
+					var count = self.parent().find('.dish-cart-count').val();
+					var name = self.parent().parent().find('.name').html();
+					var text = self.parent().find('.text').html();
+					var price = self.parent().find('.price span').html();
+					var id = self.parent().find('.dishId').val();
+					
+					addGoods(id,
+							name,
+							price,
+							text,
+							count
+					);
+				}"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	  </div>
+	</div>
+  </div>
+</div>
