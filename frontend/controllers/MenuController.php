@@ -48,7 +48,8 @@ class MenuController extends FController
 	
 	public function dropdownMenu() {
 		$connection = Yii::app()->db;
-		$command = $connection->createCommand('SELECT * , 100 * ( IF( pid = 0, id, pid ) ) + id AS srt 	FROM  `menu` WHERE visible = 1 ORDER BY srt');
+// 		$command = $connection->createCommand('SELECT * , 100 * ( IF( pid = 0, id, pid ) ) + id AS srt 	FROM  `menu` WHERE visible = 1 ORDER BY srt');
+		$command = $connection->createCommand('SELECT * , 100 * ( IF( pid = 0, id, pid ) ) + id AS srt 	FROM  `menu` WHERE visible = 1 AND level = 0 ORDER BY srt');
 		$rows = $command->queryAll();
 		
 		return $this->renderPartial('dropdownMenu', array("rows" => $rows), true);

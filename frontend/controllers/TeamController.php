@@ -35,7 +35,7 @@ class TeamController extends FController
 			
 			$mailBlank = $this->renderPartial("//mailBlank/resume", array("model" => $model), true);
 			$site = new Site();
-			SendMail::send($site->emailAdmin, "Резюме", $mailBlank);
+			SendMail::send($site->emailResume, "Резюме", $mailBlank);
 			
 			$timestamp = CDateTimeParser::parse($model->birthDate,'dd.MM.yyyy');
 			$model->birthDate = date("Y-m-d", $timestamp);

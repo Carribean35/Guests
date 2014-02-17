@@ -53,9 +53,11 @@ class ReviewController extends FController
 			$review->date = date('Y-m-d H:i:s');
 
 			$review->save();
-		
+			
+			$review->date = date('d.m.Y H:i:s');
+			$mailBlank = $this->renderPartial("//mailBlank/review", array("model" => $review), true);
 			$site = new Site();
-				
+			SendMail::send($site->emailReview, "Отзыв", $mailBlank);
 		}
 		
 		echo CJSON::encode(

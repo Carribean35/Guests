@@ -52,7 +52,8 @@ $(document).ready(function() {
 
 	$(document).ready(function() {
 		tinymce.init({
-		    selector: "textarea.tinymce"
+		    selector: "textarea.tinymce",
+		    content_css : "/css/frontend-style.css"
 		 });
 	})
 	

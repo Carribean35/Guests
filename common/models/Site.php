@@ -4,6 +4,8 @@ class Site extends CFormModel
 {
 
 	public $emailOrder;
+	public $emailResume;
+	public $emailReview;
 	public $emailAdmin;
 	public $phone;
 	public $vkLink;
@@ -31,7 +33,7 @@ class Site extends CFormModel
 	public function rules()
     {
         return array(
-        	array('emailOrder, emailAdmin', 'email'),
+        	array('emailOrder, emailAdmin, emailReview, emailResume', 'email'),
         	array('vkLink, facebookLink, instakLink, foursquareLink, twitterLink', 'url'),
             array('phone', 'safe'),
 		);
@@ -51,6 +53,8 @@ class Site extends CFormModel
 		return array(
 			'emailAdmin' => Yii::t('main', 'Email Admin'),
 			'emailOrder' => Yii::t('main', 'Email Order'),
+			'emailResume' => Yii::t('main', 'Email Resume'),
+			'emailReview' => Yii::t('main', 'Email Review'),
 			'phone' => Yii::t('main', 'Single Phone'),
 			'vkLink' => Yii::t('main', 'vkLink'),
 			'facebookLink' => Yii::t('main', 'facebookLink'),

@@ -47,6 +47,8 @@ return array(
 	'twitterLink'=>'Ссылка Twitter',
 	'Email Admin'=>'Email администратора',
 	'Email Order'=>'Email для заказов',
+	'Email Resume'=>'Email для анкет',
+	'Email Review'=>'Email для отзывов',
 	'Single Phone'=>'Единый телефон',
 	'Type' => 'Тип',
 	'Vtour'=>'Виртуальный тур',

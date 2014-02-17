@@ -135,6 +135,20 @@ Yii::app()->clientScript->registerScriptFile(
 				</div>
 			</div>
 			<div class="control-group">
+				<?php echo $form->label($site,'emailReview',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'emailReview',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'emailReview'); ?></span>
+				</div>
+			</div>
+			<div class="control-group">
+				<?php echo $form->label($site,'emailResume',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($site,'emailResume',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($site,'emailResume'); ?></span>
+				</div>
+			</div>
+			<div class="control-group">
 				<?php echo $form->label($site,'phone',array('class'=>'control-label')); ?>
 				<div class="controls">
 					<?php echo $form->textField($site,'phone',array('class'=>'m-wrap medium')); ?>

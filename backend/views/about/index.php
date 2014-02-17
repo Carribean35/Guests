@@ -42,7 +42,7 @@ $this->breadcrumbs_button = '<li class="pull-right no-text-shadow">
 		<div class="control-group">
 			<?php echo $form->label($model,'text',array('class'=>'control-label')); ?>
 			<div class="controls">
-				<?php echo $form->textArea($model,'text',array('class'=>'m-wrap medium tinymce')); ?>
+				<?php echo $form->textArea($model,'text',array('class'=>'m-wrap medium tinymce', 'style' => 'height: 400px;')); ?>
 				<span class="help-inline"><?php echo $form->error($model,'text'); ?></span>
 			</div>
 		</div>
@@ -62,7 +62,8 @@ $(document).ready(function() {
 
 	$(document).ready(function() {
 		tinymce.init({
-		    selector: "textarea.tinymce"
+		    selector: "textarea.tinymce",
+		    content_css : "/css/frontend-style.css"
 		 });
 	})
 	

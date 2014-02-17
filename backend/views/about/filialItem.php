@@ -125,7 +125,7 @@ $this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM] = 1;
 		<div class="control-group">
 			<?php echo $form->label($model,'text',array('class'=>'control-label')); ?>
 			<div class="controls">
-				<?php echo $form->textArea($model,'text',array('class'=>'m-wrap medium tinymce')); ?>
+				<?php echo $form->textArea($model,'text',array('class'=>'m-wrap medium tinymce', 'style' => 'height: 400px;')); ?>
 				<span class="help-inline"><?php echo $form->error($model,'text'); ?></span>
 			</div>
 		</div>
@@ -156,7 +156,8 @@ $this->menuActiveItems[BController::ABOUT_FILIAL_MENU_ITEM] = 1;
 $(document).ready(function() {
 
 	tinymce.init({
-	    selector: "textarea.tinymce"
+	    selector: "textarea.tinymce",
+	    content_css : "/css/frontend-style.css"
 	});
 
 	$("#Filial_phone").inputmask("mask", {"mask": "(999) 999-99-99"});
