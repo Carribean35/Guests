@@ -312,6 +312,7 @@ $(document).ready(function() {
 		var phone = $("#review-phone").val();
 		var text = $("#review-text").val();
 		var type = $("#review-type").val();
+		var place = $(this).parent().find("input[name='Review[place]']:checked").val();
 		regex = new RegExp('[a-zA-Z0-9._%-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}');
 
 		if(!regex.test(email)){
@@ -328,6 +329,7 @@ $(document).ready(function() {
 				'email' : email,
 				'text' : text,
 				'type' : type,
+				'place' : place,
 				},
 			success: function(response) {
 				self.parent()[0].reset();

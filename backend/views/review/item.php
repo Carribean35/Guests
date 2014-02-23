@@ -61,6 +61,14 @@ $this->menuActiveItems[BController::REVIEW_MENU_ITEM] = 1;
 		</div>
 		
 		<div class="control-group">
+			<?php echo $form->label($model,'answer',array('class'=>'control-label')); ?>
+			<div class="controls">
+				<?php echo $form->textArea($model,'answer',array('class'=>'m-wrap span6')); ?>
+				<span class="help-inline"><?php echo $form->error($model,'answer'); ?></span>
+			</div>
+		</div>
+		
+		<div class="control-group">
 			<?php echo $form->label($model,'visible',array('class'=>'control-label')); ?>
 			<div class="controls">
 				<?php echo $form->checkBox($model,'visible'); ?>

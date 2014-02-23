@@ -63,6 +63,21 @@
 			</p>
 		</div>
 		<form class="review-form-block">
+			<div class="radio-group-text">РЕСТОРАН</div>
+			<div class="radiobuttons-group">
+				<div>
+					<input id="f3" type="radio" name="Review[place]" value="0" checked>
+					<label for="f3" class="radio-custom">Не важно</label>
+				</div>
+				<div>
+					<input id="f1" type="radio" name="Review[place]" value="1">
+					<label for="f1" class="radio-custom">Софьи Перовской 42</label>
+				</div>
+				<div>
+					<input id="f2" type="radio" name="Review[place]" value="2">
+					<label for="f2" class="radio-custom">Цюрупа 12</label>
+				</div>				
+			</div>
 			<input type="hidden" id="review-type" value="1">
 			<input type="text" id="review-name" class="input-text input-280" placeholder="Ваше имя">
 			<input type="text" id="review-phone" class="input-text input-280" placeholder="Телефон">

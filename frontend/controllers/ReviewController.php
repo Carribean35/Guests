@@ -50,6 +50,7 @@ class ReviewController extends FController
 			$review->email = $_POST['email'];
 			$review->text = $_POST['text'];
 			$review->type = $_POST['type'];
+			$review->place = $_POST['place'];
 			$review->date = date('Y-m-d H:i:s');
 
 			$review->save();

@@ -9,6 +9,7 @@
  * @property string $phone
  * @property string $email
  * @property string $text
+ * @property string $answer
  * @property integer $type
  * @property integer $visible
  * @property string $date
@@ -21,6 +22,11 @@
  * */
 class Review extends EActiveRecord
 {
+	
+	public $workPlaces = array(0 => "Не важно",
+								1 => "Софьи Перовской 42",
+								2 => "Цюрупа 12");
+	
 	/**
 	 * @return string the associated database table name
 	 */
@@ -41,7 +47,7 @@ class Review extends EActiveRecord
 			array('type, visible', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>64),
 			array('phone, email', 'length', 'max'=>32),
-			array('name, phone, email, text, type, visible', 'safe'),
+			array('name, phone, email, text, answer, type, visible', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, phone, email, text, type, visible, date', 'safe', 'on'=>'search'),
@@ -70,6 +76,7 @@ class Review extends EActiveRecord
 			'phone' => Yii::t('main', 'Phone'),
 			'email' => Yii::t('main', 'Email'),
 			'text' => Yii::t('main', 'Text'),
+			'answer' => Yii::t('main', 'Answer'),
 			'type' => Yii::t('main', 'Type'),
 			'visible' => Yii::t('main', 'Visible'),
 			'date' => Yii::t('main', 'Date'),

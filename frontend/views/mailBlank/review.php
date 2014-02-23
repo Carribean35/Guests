@@ -5,6 +5,10 @@
 <h2><?php echo $types[$model->type]?></h2>
 <table>
 	<tr>
+		<td>Ресторан:</td>
+		<td><?php echo $model->workPlaces[$model['place']]?></td>
+	</tr>
+	<tr>
 		<td style="width: 400px;">Имя:</td>
 		<td><?php echo $model['name']?></td>
 	</tr>

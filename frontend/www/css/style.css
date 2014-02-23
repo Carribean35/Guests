@@ -259,7 +259,7 @@ body {
 }
 
 .banner-block .left .phone {
-	font-size: 24px;
+	font-size: 30px;
 	color: #ac1d1d;
 	text-align: center;
 	margin-top: 15px;
@@ -2400,10 +2400,25 @@ input[type=checkbox]:checked + label:before {
 .wrapper .review-list-block {
 	padding: 120px 25px 30px 270px;	
 }
-.wrapper .review-list-block .text{
+
+.wrapper .review-list-block .date {
+	margin-top: -23px;
+    padding-bottom: 5px;
+}
+
+.wrapper .review-list-block .place {
+	
+}
+
+.wrapper .review-list-block .text,
+.wrapper .review-list-block .answer{
 	font-size: 18px;
 }
 
+.wrapper .review-list-block .answer{
+	padding: 20px 0 7px  100px;
+	background: url(../img/answer-logo.png) no-repeat 20px 0;
+}
 
 .wrapper .review-list-block .h1 {
 	margin-top: 1px;	
@@ -2433,4 +2448,20 @@ input[type=checkbox]:checked + label:before {
 
 .footer-build a{
 	color: #ffffff;
+}
+
+.wrapper .review-block .radiobuttons-group {
+    margin: 5px 0 5px 10px;
+}
+
+.wrapper .review-block .radiobuttons-group label{
+	font-weight: normal;	
+}
+
+
+.wrapper .review-block .radio-group-text {
+    clear: both;
+    font-size: 13px;
+    font-weight: bolder;
+    margin-left: 10px;
 }

@@ -14,6 +14,7 @@ return array(
 	'Visible'=>'Видимость',
 	'View'=>'Посмотреть',
 	'Text'=>'Описание',
+	'Answer'=>'Ответ',
 	'Price'=>'Цена',
 	'Weight'=>'Вес',
 	'Recommended'=>'Рекомендовано',
