@@ -23,7 +23,7 @@
 class Review extends EActiveRecord
 {
 	
-	public $workPlaces = array(0 => "Не важно",
+	public $workPlaces = array(0 => "Доставка",
 								1 => "Софьи Перовской 42",
 								2 => "Цюрупа 12");
 	

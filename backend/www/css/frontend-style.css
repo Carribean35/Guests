@@ -49,7 +49,8 @@ table {
 body {
 	font: 12px/18px Calibri;
 	width: 100%;
-	position: relative
+	position: relative;
+	font-size: 14px;  /// тут изменить размер шрифта
 }
 
 p {

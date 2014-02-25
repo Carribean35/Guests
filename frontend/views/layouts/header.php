@@ -60,5 +60,5 @@
 		</div>
 		
 		<div class="private-office">
-			<a href="#">Личный кабинет</a>
+			<a href="http://iiko.net" target="_blank">Личный кабинет</a>
 		</div>

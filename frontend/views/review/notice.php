@@ -67,7 +67,7 @@
 			<div class="radiobuttons-group">
 				<div>
 					<input id="f3" type="radio" name="Review[place]" value="0" checked>
-					<label for="f3" class="radio-custom">Не важно</label>
+					<label for="f3" class="radio-custom">Доставка</label>
 				</div>
 				<div>
 					<input id="f1" type="radio" name="Review[place]" value="1">

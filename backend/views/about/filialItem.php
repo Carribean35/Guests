@@ -157,8 +157,13 @@ $(document).ready(function() {
 
 	tinymce.init({
 	    selector: "textarea.tinymce",
-	    content_css : "/css/frontend-style.css"
-	});
+	    content_css : "/css/frontend-style.css",
+	    plugins: 'link',
+		    toolbar: "undo redo | bold | italic  | fontsizeselect | link",
+		   	theme_advanced_font_sizes : "10px,12px,14px,16px,24px",
+		  	font_size_style_values : "10px,12px,14px,16px,24px",
+		  	fontsize_formats: "10px 12px 14px 16px 24px"
+	 });
 
 	$("#Filial_phone").inputmask("mask", {"mask": "(999) 999-99-99"});
 	
